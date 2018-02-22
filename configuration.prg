@@ -25,7 +25,7 @@
 %ref = ""
 
 ' Set "yes" for running shock scenario (mitigation scenario)
-%run_shock = "yes"
+%run_shock = "standard"
 
 ' List of model blocks to be run
 %list_block = "Other"

@@ -219,22 +219,19 @@ subroutine run_standard(string %scenario_list)
 
   call standard_backup
 
+  !scenario_count = 1
+
   for %scenario {%scenario_list}
     %index = @str(@wfind(%scenario_list, %scenario))
     %scenario_name = "Scenario" + %scenario
-    {%modelname}.scenario(n, a="1") %scenario_name
+
+    {%modelname}.scenario(n, a=!scenario_count) %scenario_name
     call standard_shock(%scenario)
     call solvemodel(%solveopt)
     %grp = "Results" + %scenario
-    'call standard_outputs(%grp, %index)
-    
-    'call output_template(%scenario_name)
-    {%modelname}.scenario(d) %scenario_name
-  next
 
-  ' Output to Excel
-  '%path = @addquotes(@linepath + "..\..\results\results.vbs")
-  'shell(h) {%path}
+    !scenario_count = !scenario_count + 1
+  next
 
 endsub
 
