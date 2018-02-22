@@ -1,10 +1,10 @@
 
-' ============================================================================ 
+' ============================================================================
 ' Series of subroutines used to run the model
 
 ' Additional user defined run subroutines in the file "run_extra.prg"
-' Here only the basic run subroutine! 
-' ============================================================================ 
+' Here only the basic run subroutine!
+' ============================================================================
 
 '============================================================================
 ' +++++++++++++++++++
@@ -29,7 +29,7 @@ subroutine run(string %data_calibration, string %data_shocks_local)
   ' ******************
   ' Load the model
 
-if %load="new"  then
+  if %load="new"  then
 
     'Give a name to the Model
     model {%modelname}
@@ -53,98 +53,98 @@ if %load="new"  then
     ' Load the model specification from the model/ folder
     {%modelname}.load blocks
     '{%modelname}.load lists Input_Output Producer Consumer government price 'Adjustments demography 'GHG
-  
+
     'save the worfile'
-     wfsave {%wfname}
+    wfsave {%wfname}
 
 
     ' Put add factors to all equations
-      {%modelname}.addassign @all
-    ' Set add factor values so that the equation has no residual when evaluated at actuals
-      {%modelname}.addinit(v=n) @all
-     'Show all add factors
-      group a_addfactors *_a
-      show a_addfactors
+    ' {%modelname}.addassign @all
+    ' ' Set add factor values so that the equation has no residual when evaluated at actuals
+    ' {%modelname}.addinit(v=n) @all
+    ' 'Show all add factors
+    ' group a_addfactors *_a
+    ' show a_addfactors
 
   else
 
-   ' If the data are already initailized as a Workfile with the option  %load = ""
-   ' Load the data
-   wfopen {%wfname}    ' Load workfile if already created
-endif
+    ' If the data are already initailized as a Workfile with the option  %load = ""
+    ' Load the data
+    wfopen {%wfname}    ' Load workfile if already created
+  endif
 
   smpl @all
 
-   'to run de track that adjust some given exogenous variablesso that a single endogenous variable follows a predefined trajectory'
-    'call init_tracker
+  'to run de track that adjust some given exogenous variablesso that a single endogenous variable follows a predefined trajectory'
+  'call init_tracker
 
   '************************************************
   '*********** SOLVE SCENARIOS ********************
   '************************************************
-  
+
 
   ' ***************************************
-    ' Call here the subroutine you want to use to solve the shock
+  ' Call here the subroutine you want to use to solve the shock
 
-    !scenario = 1
+  !scenario = 1
 
-' ***************************************
-' Just run the baseline if not shock at all
+  ' ***************************************
+  ' Just run the baseline if not shock at all
   if %run_shock = "" then
 
     ' Run the baseline scenario
     call run_scenario("baseline")
 
-'================================================================================
+    '================================================================================
 
     '************************************'
-      'track_objectives'
+    'track_objectives'
 
     '************************************'
     'series objectives_gdp = 0
- 
+
     'objectives_gdp.fill(o=2008) 0.0282,0.0183768,0.0183768,0.0183768,0.0183768,0.0183768,0.0189,0.0200,0.0203,0.0210,0.0221,0.0233,0.0248,0.0263,0.0278,0.0293,0.0307,0.0320,0.0332,0.0342,0.0351,0.0357,0.0362,0.0365,0.0366,0.0366,0.0364,0.0361,0.0356,0.0351,0.0345,0.0338,0.0332,0.0325,0.0318,0.0311,0.0305,0.0300,0.0295,0.0291,0.0288,0.0286,0.0284
 
     'call load_data_shocks(".\..\..\data\shocks\Objectives_gdp.xls")
     'call track_objectives(objectives_gdp, "GDP", "ADD_EXPORTS ADD_EXPG", "0.7 0.3")
     'call load_data_shocks(".\..\..\data\shocks\Target_track.xls")
-    'call solve_for_target("ADD_EXPORTS ADD_EXPG ADD_IMPORTS", "GDP M X", 2008, 2050)   
+    'call solve_for_target("ADD_EXPORTS ADD_EXPG ADD_IMPORTS", "GDP M X", 2008, 2050)
 
-'================================================================================  
- endif
+    '================================================================================
+  endif
 
- ' ***************************************
+  ' ***************************************
   ' Run the shock scenario if requested
 
-  if %run_shock="yes" then   
+  if %run_shock="yes" then
 
-   ' Run the baseline scenario
+    ' Run the baseline scenario
     call run_scenario("baseline")
 
     call run_scenario("shock")
   endif
 
- ' ***************************************
-' Run the standar shock scenarios if requested (shock have prepared in standard_shocks.prg)
+  ' ***************************************
+  ' Run the standar shock scenarios if requested (shock have prepared in standard_shocks.prg)
 
-   if %run_shock ="standard" then
+  if %run_shock ="standard" then
 
-      wfopen {%wfname}
+    wfopen {%wfname}
 
     ' Run the baseline scenario
-     call run_scenario("baseline")
+    call run_scenario("baseline")
 
-     call run_standard("IAPU") 
+    'call run_standard("IAPU")
   endif
 
   ' ***************************************
   ' Call (eventually) here the subroutine you want to use to analyse the results
-      
-      ' call additional_outputs
-      ' call output_template(%scenario_name) 
+
+  ' call additional_outputs
+  ' call output_template(%scenario_name)
 
 
-   ' *******************
+  ' *******************
   ' Error reporting
 
   string a_errors="Number of errors: "+@str(@errorcount)
@@ -169,7 +169,7 @@ endif
 
 endsub
 
-' ============================================================================ 
+' ============================================================================
 ' ************************************************
 
 ' +++++++++++++++++++++++++++
@@ -188,12 +188,12 @@ subroutine run_scenario(string %scenario_name)
       call load_realist
     else
 
-    if %hybrid_household<>"yes" then
+      if %hybrid_household<>"yes" then
         ''    {%modelname}.addassign(i) @all
         ''    {%modelname}.addinit(v=n) @all
-    endif
+      endif
 
-  endif
+    endif
 
   else
 
@@ -203,9 +203,9 @@ subroutine run_scenario(string %scenario_name)
 
     ' Load data for the shock to be simulated
     call load_data_shocks(%data_shocks_local)
-endif
+  endif
 
-   call solvemodel(%solveopt)
+  call solvemodel(%solveopt)
 
 endsub
 
@@ -238,7 +238,5 @@ endsub
 ' ************************************************
 
 ''  call create_seriesresults(%graphopt)
-  'call graph(%graphopt)   ' Call GRAPH subroutine
- '' call tables(%tabopt)    ' Call TABLES subroutine
-
-   
+'call graph(%graphopt)   ' Call GRAPH subroutine
+'' call tables(%tabopt)    ' Call TABLES subroutine
