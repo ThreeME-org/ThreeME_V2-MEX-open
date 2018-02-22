@@ -1,0 +1,36 @@
+       
+REC_VAL := DIV_GOV_VAL + IR_VAL + AIC_VAL + INC_GOV_OTH_net - CL_S[sp]*L_S[sp]*PROG_L[sp] - CL_SE[sp]*L_SE[sp]*PROG_L[sp] + _
+          value(Y[sp] + TAX + IY + IS + CSE_TOT + CSS_TOT - (E[sp] + MAT[sp] + IY[sp]))        
+
+
+R_G := @elem( (DEP_VAL - (PRESOC_VAL + CL_S[sp]*L_S[sp]*PROG_L[sp] + CL_SE[sp]*L_SE[sp]*PROG_L[sp] + _  
+               value(E[sp] + MAT[sp] + IY[sp] + (G - G[cp]) - (SUB  + SY)) + IA[sp])) / DEBT_G_VAL{-1}, %baseyear)
+
+Tvat|O|[c] := if(CH|O|[c] <> 0, VAT|O|_HSH[c] / (CH|O|[c] - VAT|O|_HSH[c]), 0)
+
+eta_k_E[s] := 0.5
+
+# equations 3.39 & 3.40
+REC_SUBENERD[sube] := 0
+REC_SUBENERM[sube] := 0
+
+REC_SUBENERD := sum(REC_SUBENERD[sube] on sube)
+REC_SUBENERM := sum(REC_SUBENERM[sube] on sube)
+REC_SUBENER := REC_SUBENERD + REC_SUBENERM
+
+TsubD_BAU[c] := TsubD[c] 
+TsubM_BAU[c] := TsubM[c]
+
+# equation 4.23
+
+alpha_PROG_E_H[ce, h] := 0
+GR_PROG_E_H[ce, h] := 0
+BetaExp_bis[c, h] :=  BetaExp[c, h]
+
+BetaExp_bis[h] := sum(BetaExp_bis[c, h] on c)
+
+ ADD_EXPORTS := 0
+ ADD_EXPG := 0
+ ADD_IMPORTS := 0
+ ADD_PRESOC := 0
+ ADD_TRANS_VAL := 0

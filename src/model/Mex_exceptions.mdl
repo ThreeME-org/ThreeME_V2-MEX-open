@@ -1,0 +1,73 @@
+
+# equation 2.31 & 2.33
+@over PMTD[trsp] * MTD[trsp] = -(sum(value(MTD[trsp, c] + MTM[trsp, c]) on c in %list_com \ %list_trsp)  ) _
+                      if MTD[trsp] <> 0
+
+# equation 2.32 & 2.34
+@over MTD[trsp] = -( sum(MTD[trsp, c] + MTM[trsp, c] on c in %list_com \ %list_trsp) ) _
+                                    if MTD[trsp] <> 0
+@over MTM[trsp] = 0
+
+# equation 2.35 - 2.38
+@over PMCD[ccm] * MCD[ccm] = -(sum(value(MCM[c] + MCD[c])on c in %list_com \ %list_com_commarg)) if MCD[ccm] <> 0
+@over MCD[ccm] = -(sum(MCM[c] + MCD[c] on c in %list_com \ %list_com_commarg)) if MCD[ccm] <> 0
+@over MCM[ccm] = 0
+
+
+# equation 3.68
+REC_VAL = DIV_GOV_VAL + IR_VAL + AIC_VAL + INC_GOV_OTH_net - CL_S[sp] * L_S[sp] * PROG_L[sp] - CL_SE[sp] * L_SE[sp] * PROG_L[sp] + _
+          value(Y[sp] + TAX + IY + IS + CSE_TOT + CSS_TOT - (E[sp] + MAT[sp] + IY[sp]))
+
+# Total spending
+# equation 3.79
+DEP_VAL = CL_S[sp]*L_S[sp]*PROG_L[sp] + CL_SE[sp]*L_SE[sp]*PROG_L[sp]+ R_G{-1}*DEBT_G_VAL{-1} +  PRESOC_VAL +  _
+          value(E[sp] + MAT[sp] + IY[sp] + IA[sp] + (G - G[cp]) - (SUB  + SY))
+
+# Substitution for transport margins
+d(SUBST_MT|O|_n[trsp, c]) = sum( -ES_TRANSP_MARG($c, cols_trsp(trsp, trsp_oth)) * d(log(PE[trsp]) - log(PE[trsp_oth])) * _
+                                 value(MT|O|[trsp_oth, c]{-1} / (MT|O|[trsp, c]{-1} + MT|O|[trsp_oth, c]{-1})) if trsp_oth <> trsp on trsp_oth in %list_trsp) _
+                            if MT|O|[trsp, c] <> 0 where trsp in %list_trsp, c in %list_com \ %list_trsp
+
+# Substitution for transport intermediaries
+
+d(SUBST_MAT_n[trsp, s]) = sum( -ES_TRANSP_CI($s, cols_mat(trsp, trsp_oth)) * d(log(PMAT[trsp, s]) - log(PMAT[trsp_oth, s])) * _
+                               value(MAT[trsp_oth, s]{-1} / (MAT[s]{-1}) ) if (trsp_oth <> trsp) on trsp_oth in %list_trsp) _
+                          if MAT[trsp, s] <> 0
+
+# equation 2.04 &  2.06
+
+@over d(SUBST_K_n[s]) = _
+  -ES_KLEM($s, 1) * d(log(CK[s]) - log(CL[s]))   * (L[s]{-1}   * PROG_L[s]{-1} * CL[s]{-1} / (CU[s]{-1} * Y[s]{-1})) _
+  -eta_K_E[s] * d(log(CK[s]) - log(PE[s]))   * (E[s]{-1}   * PE[s]{-1}                 / (CU[s]{-1} * Y[s]{-1})) _
+  -ES_KLEM($s, 3) * d(log(CK[s]) - log(PMAT[s])) * (MAT[s]{-1} * PMAT[s]{-1}               / (CU[s]{-1} * Y[s]{-1})) _
+  if K_n[s] <> 0
+
+
+@over d(SUBST_E_n[s]) = _
+  -eta_K_E[s] * d(log(PE[s]) - log(CK[s]))   * (K[s]{-1}   * CK[s]{-1}                 / (CU[s]{-1} * Y[s]{-1})) _
+  -ES_KLEM($s, 4) * d(log(PE[s]) - log(CL[s]))   * (L[s]{-1}   * PROG_L[s]{-1} * CL[s]{-1} / (CU[s]{-1} * Y[s]{-1})) _
+  -ES_KLEM($s, 6) * d(log(PE[s]) - log(PMAT[s])) * (MAT[s]{-1} * PMAT[s]{-1}               / (CU[s]{-1} * Y[s]{-1})) _
+if E_n[s] <> 0
+
+#d(eta_K_E[smt]) = 0.8*1.0*(d(log(PE[smt]) - log(PCH)))*(d(log(PE[smt]) - log(PCH))>0) + (1 - 0.8)*d(eta_K_E[smt]{-1})
+d(eta_K_E[s]) = 0.8*1.5*(d(log(PE[s]) - log(CK[s])))*(d(log(PE[s]) - log(CK[s]))>0) + (1 - 0.8)*d(eta_K_E[s]{-1})
+#d(eta_K_E[s]) = 0.8*0*(d(log(PE[s]) - log(CK[s])))*(d(log(PE[s]) - log(CK[s]))>0) + (1 - 0.8)*d(eta_K_E[s]{-1}) #Pour test de sensibilité
+
+# equations 3.39 & 3.40
+
+REC_SUBENERD[sube] = -YQ[sube] * (TSUBD_BAU[sube] - TSUBD[sube])
+REC_SUBENERM[sube] = -M[sube] * (TSUBM_BAU[sube] - TSUBM[sube])
+
+REC_SUBENERD = sum(REC_SUBENERD[sube] on sube)
+REC_SUBENERM = sum(REC_SUBENERM[sube] on sube)
+REC_SUBENER = REC_SUBENERD + REC_SUBENERM
+
+# equation 4.23
+@over EXP_n[c, h] * PEXP[c, h] = PEXP[c, h] * NEXP[c, h] + BetaExp_bis[c, h] * (DISPINC_VAL[h] * (1 - MPS[h]) - PNEXP[h] * NEXP[h]) if EXP[c, h] <> 0
+
+d(log(BetaExp_bis[ce, h])) = d(log(BetaExp[ce, h])) - GR_PROG_E_H[ce, h] if BetaExp[ce, h] <> 0
+
+BetaExp_bis[cm, h] = BetaExp[cm, h]*(1 - (sum(BetaExp_bis[ce, h] on ce)))/(sum(BetaExp[cm2, h] on cm2 in %list_com_MAT)) if BetaExp[cm, h] <> 0
+
+BetaExp_bis[h] = sum(BetaExp_bis[c, h] on c) 
+
