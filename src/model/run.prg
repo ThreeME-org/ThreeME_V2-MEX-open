@@ -134,7 +134,7 @@ subroutine run(string %data_calibration, string %data_shocks_local)
     ' Run the baseline scenario
     call run_scenario("baseline")
 
-    'call run_standard("IAPU")
+    call run_standard("IAPU")
   endif
 
   ' ***************************************
