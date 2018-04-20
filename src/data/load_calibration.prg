@@ -269,7 +269,7 @@ subroutine load_calibration
     !step_1=!step_1+1
   next
   
-  '----------------------------EMISSIONS From Households---------------------------------------------------------------------------------
+  '----------------------------EMISSIONS From Households-----------------------------------------
 
 ' For decarbonation
   !step_1=0
@@ -290,6 +290,33 @@ subroutine load_calibration
     next
     !step_1=!step_1+1
   next
+
+  '---------------------------***LOAD ENERGY CONSUMPTION DATA***---------------------------------
+' For sectors
+  !step_1=0
+  For %sec {%list_sec}
+     !step_2=0
+     For %en  {%list_com_EN}
+       call create_series("EN_SEC_"+%en+"_"+%sec,STEADYSTATE(2,1),ENERGY(1+!step_1,1+!step_2))
+
+       !step_2=!step_2+1
+     next
+    !step_1=!step_1+1
+   next
+
+  '----------------------------ENERGY CONSUMPTION From Households------------------------------------------
+
+' For Households
+  '!step_1=0
+  'For %hh {%list_household}
+    '!step_2=0
+    'For %ene  {%list_com_ENER}
+      'call create_series("ENER_HH_"+%ene+"_"+%hh,STEADYSTATE(2,1),ENERGY(26,1+!step_2))
+
+     '' !step_2=!step_2+1
+    'next
+   '' !step_1=!step_1+1
+  'next
 
   '---------------------------***DEMOGRAPHY***---------------------------------
   !step_2=0
