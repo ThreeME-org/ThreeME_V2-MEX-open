@@ -4,7 +4,7 @@ include ..\model\lists
 
 # ***CO2 SECTORS EMISSIONS***
 # equation 6.1: CO2 emissions per sector and source
-  d(log(EMS_SEC[ce2,s])) = d(log(E[ce2,s]*IC[ce2,s]))   if EMS_SEC[ce2,s] <> 0
+  d(log(EMS_SEC[ce2,s])) = d(log(E[ce2,s]*IC[ce2,s]))   if E[ce2,s] <> 0
 
 # equation 6.2: CO2 emissions from decarbonation per sector 
   d(log(EMS_DC[s])) = d(log(MAT[s])) if EMS_DC[s] <> 0
