@@ -41,7 +41,7 @@ subroutine run(string %data_calibration, string %data_shocks_local)
     call export_all_to_csv
 
     ' Create the series using the dependencies (add-ins "series")
-    {%modelname}.series round1 round2 demography government household Mex_exceptions ghg carbon_tax prices
+    {%modelname}.series round1 round2 demography government household Mex_exceptions ghg carbon_tax prices energy
 
     if %hybrid_household="yes"  then 'Load if "yes" in the main
       call load_data_hybrid
