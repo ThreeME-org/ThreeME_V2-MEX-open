@@ -296,13 +296,21 @@ subroutine load_calibration
   !step_1=0
   For %sec {%list_sec}
      !step_2=0
-     For %en  {%list_com_EN}
-       call create_series("EN_SEC_"+%en+"_"+%sec,STEADYSTATE(2,1),ENERGY(1+!step_1,1+!step_2))
+     For %ce  {%list_com_E}
+       call create_series("EN_SEC_"+%ce+"_"+%sec,STEADYSTATE(2,1),ENERGY(1+!step_1,1+!step_2))
 
        !step_2=!step_2+1
      next
     !step_1=!step_1+1
    next
+
+' For BIOMASS
+  !step_1=0
+  For %sec {%list_sec}
+    call create_series("EN_SEC_BIOM_"+%sec,STEADYSTATE(2,1),ENERGY(1+!step_1,4))
+    !step_1=!step_1+1
+  next
+
 
   '----------------------------ENERGY CONSUMPTION From Households------------------------------------------
 
@@ -310,13 +318,22 @@ subroutine load_calibration
    !step_1=0
   For %hh {%list_household}
      !step_2=0
-    For %en  {%list_com_EN}
-      call create_series("EN_HH_"+%en+"_"+%hh,STEADYSTATE(2,1),ENERGY(26,1+!step_2))
+    For %ce  {%list_com_E}
+      call create_series("EN_HH_"+%ce+"_"+%hh,STEADYSTATE(2,1),ENERGY(26,1+!step_2))
 
       !step_2=!step_2+1
      next
      !step_1=!step_1+1
    next
+
+  ' For BIOMASS
+  !step_1=0
+  For %hh {%list_household}
+   
+    call create_series("EN_HH_BIOM_"+%hh,STEADYSTATE(2,1),ENERGY(26,4))
+    !step_1=!step_1+1
+   next
+  
 
   '---------------------------***DEMOGRAPHY***---------------------------------
   !step_2=0

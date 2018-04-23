@@ -1,26 +1,31 @@
-#Bloc Energy Consumption
 include ..\model\lists
 
 # ***AGREGATION OF ENERGY CONSUMPTION***
 # equation 9.1: Energy consumption per sector
-  EN_SEC[s] := sum(EN_SEC[en,s] on en)
+  EN_SEC[s] := sum(EN_SEC[ce,s] on ce)
 
 # equation 9.2:  Energy consumption of all sectors
   EN_SEC := sum(EN_SEC[s] on s)
 
+# equation 9.3: Energy consumption from Biomass of all sectors   
+  EN_SEC_BIOM := sum(EN_SEC_BIOM[s] on s) 
+
 # equation 9.3: Energy consumption per source
-  EN_SOU[en] := sum(EN_SEC[en,s] on s)
+  EN_SOU[ce] := sum(EN_SEC[ce,s] on s)
  
 # equation 9.4: Energy consumption of all sectors
-  EMS_SOU := sum(EMS_SOU[en] on en)  
+  EN_SOU := sum(EN_SOU[ce] on ce)  
   Verif_EN := EN_SEC - EN_SOU
   
 # equation 9.5: Energy consumption all households per source
-  EN_HH[en] := sum(EN_HH[en, h] on h)
+  EN_HH[ce] := sum(EN_HH[ce, h] on h)
 
 # equation 9.6: Energy consumption all households
-  EMS_HH := sum(EN_HH[en] on ce2)
+  EN_HH := sum(EN_HH[ce] on ce)
 
-# equation 9.7: Total Energy Consumption 
-  EMS_TOT := EN_SEC + EN_HH
+# equation 9.7: Energy consumption from biomass
+  EN_BIOM := EN_SEC_BIOM + EN_HH_BIOM  
+
+# equation 9.8: Total Energy Consumption 
+  EMS_TOT := EN_SEC + EN_HH + EN_BIOM
   

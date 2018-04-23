@@ -11,7 +11,7 @@
 			
 			{
 				"_frequency" : "A",
-				"_last_update" : [ 736806.6114120371, "04/23/2018 14:40" ],
+				"_last_update" : [ 736806.6518865741, "04/23/2018 15:38" ],
 				"_name" : "a_3ME",
 				"_obj_count" : 20477,
 				"_objects" : 
@@ -10146,22 +10146,352 @@
 					},
 					
 					{
+						"_name" : "EN_HH_20_H01",
+						"_type" : "SERIES"
+					},
+					
+					{
+						"_name" : "EN_HH_21_H01",
+						"_type" : "SERIES"
+					},
+					
+					{
+						"_name" : "EN_HH_22_H01",
+						"_type" : "SERIES"
+					},
+					
+					{
 						"_name" : "EN_HH_BIOM_H01",
 						"_type" : "SERIES"
 					},
 					
 					{
-						"_name" : "EN_HH_ELEC_H01",
+						"_name" : "EN_SEC_20_01",
 						"_type" : "SERIES"
 					},
 					
 					{
-						"_name" : "EN_HH_GAS_H01",
+						"_name" : "EN_SEC_20_02",
 						"_type" : "SERIES"
 					},
 					
 					{
-						"_name" : "EN_HH_OIL_COAL_H01",
+						"_name" : "EN_SEC_20_03",
+						"_type" : "SERIES"
+					},
+					
+					{
+						"_name" : "EN_SEC_20_04",
+						"_type" : "SERIES"
+					},
+					
+					{
+						"_name" : "EN_SEC_20_05",
+						"_type" : "SERIES"
+					},
+					
+					{
+						"_name" : "EN_SEC_20_06",
+						"_type" : "SERIES"
+					},
+					
+					{
+						"_name" : "EN_SEC_20_07",
+						"_type" : "SERIES"
+					},
+					
+					{
+						"_name" : "EN_SEC_20_08",
+						"_type" : "SERIES"
+					},
+					
+					{
+						"_name" : "EN_SEC_20_09",
+						"_type" : "SERIES"
+					},
+					
+					{
+						"_name" : "EN_SEC_20_10",
+						"_type" : "SERIES"
+					},
+					
+					{
+						"_name" : "EN_SEC_20_11",
+						"_type" : "SERIES"
+					},
+					
+					{
+						"_name" : "EN_SEC_20_12",
+						"_type" : "SERIES"
+					},
+					
+					{
+						"_name" : "EN_SEC_20_13",
+						"_type" : "SERIES"
+					},
+					
+					{
+						"_name" : "EN_SEC_20_14",
+						"_type" : "SERIES"
+					},
+					
+					{
+						"_name" : "EN_SEC_20_15",
+						"_type" : "SERIES"
+					},
+					
+					{
+						"_name" : "EN_SEC_20_16",
+						"_type" : "SERIES"
+					},
+					
+					{
+						"_name" : "EN_SEC_20_17",
+						"_type" : "SERIES"
+					},
+					
+					{
+						"_name" : "EN_SEC_20_18",
+						"_type" : "SERIES"
+					},
+					
+					{
+						"_name" : "EN_SEC_20_19",
+						"_type" : "SERIES"
+					},
+					
+					{
+						"_name" : "EN_SEC_20_20",
+						"_type" : "SERIES"
+					},
+					
+					{
+						"_name" : "EN_SEC_20_21",
+						"_type" : "SERIES"
+					},
+					
+					{
+						"_name" : "EN_SEC_20_22",
+						"_type" : "SERIES"
+					},
+					
+					{
+						"_name" : "EN_SEC_21_01",
+						"_type" : "SERIES"
+					},
+					
+					{
+						"_name" : "EN_SEC_21_02",
+						"_type" : "SERIES"
+					},
+					
+					{
+						"_name" : "EN_SEC_21_03",
+						"_type" : "SERIES"
+					},
+					
+					{
+						"_name" : "EN_SEC_21_04",
+						"_type" : "SERIES"
+					},
+					
+					{
+						"_name" : "EN_SEC_21_05",
+						"_type" : "SERIES"
+					},
+					
+					{
+						"_name" : "EN_SEC_21_06",
+						"_type" : "SERIES"
+					},
+					
+					{
+						"_name" : "EN_SEC_21_07",
+						"_type" : "SERIES"
+					},
+					
+					{
+						"_name" : "EN_SEC_21_08",
+						"_type" : "SERIES"
+					},
+					
+					{
+						"_name" : "EN_SEC_21_09",
+						"_type" : "SERIES"
+					},
+					
+					{
+						"_name" : "EN_SEC_21_10",
+						"_type" : "SERIES"
+					},
+					
+					{
+						"_name" : "EN_SEC_21_11",
+						"_type" : "SERIES"
+					},
+					
+					{
+						"_name" : "EN_SEC_21_12",
+						"_type" : "SERIES"
+					},
+					
+					{
+						"_name" : "EN_SEC_21_13",
+						"_type" : "SERIES"
+					},
+					
+					{
+						"_name" : "EN_SEC_21_14",
+						"_type" : "SERIES"
+					},
+					
+					{
+						"_name" : "EN_SEC_21_15",
+						"_type" : "SERIES"
+					},
+					
+					{
+						"_name" : "EN_SEC_21_16",
+						"_type" : "SERIES"
+					},
+					
+					{
+						"_name" : "EN_SEC_21_17",
+						"_type" : "SERIES"
+					},
+					
+					{
+						"_name" : "EN_SEC_21_18",
+						"_type" : "SERIES"
+					},
+					
+					{
+						"_name" : "EN_SEC_21_19",
+						"_type" : "SERIES"
+					},
+					
+					{
+						"_name" : "EN_SEC_21_20",
+						"_type" : "SERIES"
+					},
+					
+					{
+						"_name" : "EN_SEC_21_21",
+						"_type" : "SERIES"
+					},
+					
+					{
+						"_name" : "EN_SEC_21_22",
+						"_type" : "SERIES"
+					},
+					
+					{
+						"_name" : "EN_SEC_22_01",
+						"_type" : "SERIES"
+					},
+					
+					{
+						"_name" : "EN_SEC_22_02",
+						"_type" : "SERIES"
+					},
+					
+					{
+						"_name" : "EN_SEC_22_03",
+						"_type" : "SERIES"
+					},
+					
+					{
+						"_name" : "EN_SEC_22_04",
+						"_type" : "SERIES"
+					},
+					
+					{
+						"_name" : "EN_SEC_22_05",
+						"_type" : "SERIES"
+					},
+					
+					{
+						"_name" : "EN_SEC_22_06",
+						"_type" : "SERIES"
+					},
+					
+					{
+						"_name" : "EN_SEC_22_07",
+						"_type" : "SERIES"
+					},
+					
+					{
+						"_name" : "EN_SEC_22_08",
+						"_type" : "SERIES"
+					},
+					
+					{
+						"_name" : "EN_SEC_22_09",
+						"_type" : "SERIES"
+					},
+					
+					{
+						"_name" : "EN_SEC_22_10",
+						"_type" : "SERIES"
+					},
+					
+					{
+						"_name" : "EN_SEC_22_11",
+						"_type" : "SERIES"
+					},
+					
+					{
+						"_name" : "EN_SEC_22_12",
+						"_type" : "SERIES"
+					},
+					
+					{
+						"_name" : "EN_SEC_22_13",
+						"_type" : "SERIES"
+					},
+					
+					{
+						"_name" : "EN_SEC_22_14",
+						"_type" : "SERIES"
+					},
+					
+					{
+						"_name" : "EN_SEC_22_15",
+						"_type" : "SERIES"
+					},
+					
+					{
+						"_name" : "EN_SEC_22_16",
+						"_type" : "SERIES"
+					},
+					
+					{
+						"_name" : "EN_SEC_22_17",
+						"_type" : "SERIES"
+					},
+					
+					{
+						"_name" : "EN_SEC_22_18",
+						"_type" : "SERIES"
+					},
+					
+					{
+						"_name" : "EN_SEC_22_19",
+						"_type" : "SERIES"
+					},
+					
+					{
+						"_name" : "EN_SEC_22_20",
+						"_type" : "SERIES"
+					},
+					
+					{
+						"_name" : "EN_SEC_22_21",
+						"_type" : "SERIES"
+					},
+					
+					{
+						"_name" : "EN_SEC_22_22",
 						"_type" : "SERIES"
 					},
 					
@@ -10272,336 +10602,6 @@
 					
 					{
 						"_name" : "EN_SEC_BIOM_22",
-						"_type" : "SERIES"
-					},
-					
-					{
-						"_name" : "EN_SEC_ELEC_01",
-						"_type" : "SERIES"
-					},
-					
-					{
-						"_name" : "EN_SEC_ELEC_02",
-						"_type" : "SERIES"
-					},
-					
-					{
-						"_name" : "EN_SEC_ELEC_03",
-						"_type" : "SERIES"
-					},
-					
-					{
-						"_name" : "EN_SEC_ELEC_04",
-						"_type" : "SERIES"
-					},
-					
-					{
-						"_name" : "EN_SEC_ELEC_05",
-						"_type" : "SERIES"
-					},
-					
-					{
-						"_name" : "EN_SEC_ELEC_06",
-						"_type" : "SERIES"
-					},
-					
-					{
-						"_name" : "EN_SEC_ELEC_07",
-						"_type" : "SERIES"
-					},
-					
-					{
-						"_name" : "EN_SEC_ELEC_08",
-						"_type" : "SERIES"
-					},
-					
-					{
-						"_name" : "EN_SEC_ELEC_09",
-						"_type" : "SERIES"
-					},
-					
-					{
-						"_name" : "EN_SEC_ELEC_10",
-						"_type" : "SERIES"
-					},
-					
-					{
-						"_name" : "EN_SEC_ELEC_11",
-						"_type" : "SERIES"
-					},
-					
-					{
-						"_name" : "EN_SEC_ELEC_12",
-						"_type" : "SERIES"
-					},
-					
-					{
-						"_name" : "EN_SEC_ELEC_13",
-						"_type" : "SERIES"
-					},
-					
-					{
-						"_name" : "EN_SEC_ELEC_14",
-						"_type" : "SERIES"
-					},
-					
-					{
-						"_name" : "EN_SEC_ELEC_15",
-						"_type" : "SERIES"
-					},
-					
-					{
-						"_name" : "EN_SEC_ELEC_16",
-						"_type" : "SERIES"
-					},
-					
-					{
-						"_name" : "EN_SEC_ELEC_17",
-						"_type" : "SERIES"
-					},
-					
-					{
-						"_name" : "EN_SEC_ELEC_18",
-						"_type" : "SERIES"
-					},
-					
-					{
-						"_name" : "EN_SEC_ELEC_19",
-						"_type" : "SERIES"
-					},
-					
-					{
-						"_name" : "EN_SEC_ELEC_20",
-						"_type" : "SERIES"
-					},
-					
-					{
-						"_name" : "EN_SEC_ELEC_21",
-						"_type" : "SERIES"
-					},
-					
-					{
-						"_name" : "EN_SEC_ELEC_22",
-						"_type" : "SERIES"
-					},
-					
-					{
-						"_name" : "EN_SEC_GAS_01",
-						"_type" : "SERIES"
-					},
-					
-					{
-						"_name" : "EN_SEC_GAS_02",
-						"_type" : "SERIES"
-					},
-					
-					{
-						"_name" : "EN_SEC_GAS_03",
-						"_type" : "SERIES"
-					},
-					
-					{
-						"_name" : "EN_SEC_GAS_04",
-						"_type" : "SERIES"
-					},
-					
-					{
-						"_name" : "EN_SEC_GAS_05",
-						"_type" : "SERIES"
-					},
-					
-					{
-						"_name" : "EN_SEC_GAS_06",
-						"_type" : "SERIES"
-					},
-					
-					{
-						"_name" : "EN_SEC_GAS_07",
-						"_type" : "SERIES"
-					},
-					
-					{
-						"_name" : "EN_SEC_GAS_08",
-						"_type" : "SERIES"
-					},
-					
-					{
-						"_name" : "EN_SEC_GAS_09",
-						"_type" : "SERIES"
-					},
-					
-					{
-						"_name" : "EN_SEC_GAS_10",
-						"_type" : "SERIES"
-					},
-					
-					{
-						"_name" : "EN_SEC_GAS_11",
-						"_type" : "SERIES"
-					},
-					
-					{
-						"_name" : "EN_SEC_GAS_12",
-						"_type" : "SERIES"
-					},
-					
-					{
-						"_name" : "EN_SEC_GAS_13",
-						"_type" : "SERIES"
-					},
-					
-					{
-						"_name" : "EN_SEC_GAS_14",
-						"_type" : "SERIES"
-					},
-					
-					{
-						"_name" : "EN_SEC_GAS_15",
-						"_type" : "SERIES"
-					},
-					
-					{
-						"_name" : "EN_SEC_GAS_16",
-						"_type" : "SERIES"
-					},
-					
-					{
-						"_name" : "EN_SEC_GAS_17",
-						"_type" : "SERIES"
-					},
-					
-					{
-						"_name" : "EN_SEC_GAS_18",
-						"_type" : "SERIES"
-					},
-					
-					{
-						"_name" : "EN_SEC_GAS_19",
-						"_type" : "SERIES"
-					},
-					
-					{
-						"_name" : "EN_SEC_GAS_20",
-						"_type" : "SERIES"
-					},
-					
-					{
-						"_name" : "EN_SEC_GAS_21",
-						"_type" : "SERIES"
-					},
-					
-					{
-						"_name" : "EN_SEC_GAS_22",
-						"_type" : "SERIES"
-					},
-					
-					{
-						"_name" : "EN_SEC_OIL_COAL_01",
-						"_type" : "SERIES"
-					},
-					
-					{
-						"_name" : "EN_SEC_OIL_COAL_02",
-						"_type" : "SERIES"
-					},
-					
-					{
-						"_name" : "EN_SEC_OIL_COAL_03",
-						"_type" : "SERIES"
-					},
-					
-					{
-						"_name" : "EN_SEC_OIL_COAL_04",
-						"_type" : "SERIES"
-					},
-					
-					{
-						"_name" : "EN_SEC_OIL_COAL_05",
-						"_type" : "SERIES"
-					},
-					
-					{
-						"_name" : "EN_SEC_OIL_COAL_06",
-						"_type" : "SERIES"
-					},
-					
-					{
-						"_name" : "EN_SEC_OIL_COAL_07",
-						"_type" : "SERIES"
-					},
-					
-					{
-						"_name" : "EN_SEC_OIL_COAL_08",
-						"_type" : "SERIES"
-					},
-					
-					{
-						"_name" : "EN_SEC_OIL_COAL_09",
-						"_type" : "SERIES"
-					},
-					
-					{
-						"_name" : "EN_SEC_OIL_COAL_10",
-						"_type" : "SERIES"
-					},
-					
-					{
-						"_name" : "EN_SEC_OIL_COAL_11",
-						"_type" : "SERIES"
-					},
-					
-					{
-						"_name" : "EN_SEC_OIL_COAL_12",
-						"_type" : "SERIES"
-					},
-					
-					{
-						"_name" : "EN_SEC_OIL_COAL_13",
-						"_type" : "SERIES"
-					},
-					
-					{
-						"_name" : "EN_SEC_OIL_COAL_14",
-						"_type" : "SERIES"
-					},
-					
-					{
-						"_name" : "EN_SEC_OIL_COAL_15",
-						"_type" : "SERIES"
-					},
-					
-					{
-						"_name" : "EN_SEC_OIL_COAL_16",
-						"_type" : "SERIES"
-					},
-					
-					{
-						"_name" : "EN_SEC_OIL_COAL_17",
-						"_type" : "SERIES"
-					},
-					
-					{
-						"_name" : "EN_SEC_OIL_COAL_18",
-						"_type" : "SERIES"
-					},
-					
-					{
-						"_name" : "EN_SEC_OIL_COAL_19",
-						"_type" : "SERIES"
-					},
-					
-					{
-						"_name" : "EN_SEC_OIL_COAL_20",
-						"_type" : "SERIES"
-					},
-					
-					{
-						"_name" : "EN_SEC_OIL_COAL_21",
-						"_type" : "SERIES"
-					},
-					
-					{
-						"_name" : "EN_SEC_OIL_COAL_22",
 						"_type" : "SERIES"
 					},
 					

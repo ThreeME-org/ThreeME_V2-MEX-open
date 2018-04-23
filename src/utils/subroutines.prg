@@ -67,7 +67,7 @@ subroutine create_lists
   %list_com_MAT = "01 02 03 04 05 06 07 08 09 10 11 12 13 14 15 16 17 18 19" '[cm]
   %list_com_E = "20 21 22" '[ce]
   %list_com_E_CO2 = "20 21" '[ce2]
-  %list_com_EN = "OIL_COAL GAS ELEC BIOM" '[en]
+  %list_com_EN = "OIL_COAL GAS ELEC" '[en]
 
   %list_trsp = "12 13 14 15 16 17" '[trsp]
   %list_trsp_travel = "12 13 16"

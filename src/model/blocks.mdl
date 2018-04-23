@@ -11,3 +11,4 @@ include ..\model\Adjustments
 include ..\model\Mex_Exceptions
 include ..\model\GHG
 include ..\model\carbon_tax
+include ..\model\Energy
