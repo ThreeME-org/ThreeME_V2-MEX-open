@@ -268,15 +268,15 @@ subroutine load_calibration
     next
     !step_1=!step_1+1
   next
-  
-  '----------------------------EMISSIONS From Households-----------------------------------------
 
-' For decarbonation
+  ' For BIOM
   !step_1=0
   For %sec {%list_sec}
-    call create_series("EMS_DC_"+%sec,STEADYSTATE(2,1),EMISSION(1+!step_1,3))
+    call create_series("EMS_SEC_BIOM_"+%sec,STEADYSTATE(2,1),EMISSION(1+!step_1,3))
     !step_1=!step_1+1
   next
+  
+  '----------------------------EMISSIONS From Households-----------------------------------------
 
 
 ' For Households
@@ -284,12 +284,20 @@ subroutine load_calibration
   For %hh {%list_household}
     !step_2=0
     For %ems  {%list_com_E_CO2}
-      call create_series("EMS_HH_"+%ems+"_"+%hh,STEADYSTATE(2,1),household(67+!step_2,1+!step_1))
+      call create_series("EMS_HH_"+%ems+"_"+%hh,STEADYSTATE(2,1),EMISSION(26,1+!step_2))
 
       !step_2=!step_2+1
     next
     !step_1=!step_1+1
   next
+
+  ' For BIOMASS
+  !step_1=0
+  For %hh {%list_household}
+   
+    call create_series("EMS_HH_BIOM_"+%hh,STEADYSTATE(2,1),EMISSION(26,3))
+    !step_1=!step_1+1
+   next
 
   '---------------------------***LOAD ENERGY CONSUMPTION DATA***---------------------------------
 ' For sectors
