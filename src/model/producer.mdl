@@ -128,7 +128,7 @@ MAT|O| = sum(MAT|O|[s] on s)
 # equation 2.27
 EM[ce, s] = (E[ce, s] - ED[ce, s] > 0) * (E[ce, s] - ED[ce, s]) + (E[ce, s] - ED[ce, s] =< 0) * 0.00001 if EM[ce, s] <> 0
 
-d(SUBST_EM_n[ce, s]) = -ES_CIM($s, 20 + $ce) * d(log(PEM[ce]) - log(PED[ce])) * (PED[ce]{-1} * ED[ce, s]{-1}/(PE[ce, s]{-1} * E[ce, s]{-1})) if (EM[ce, s] <> 0) * (ED[ce, s] <> 0)
+d(SUBST_EM_n[ce, s]) = -ES_CIM($s, 19 + $ce) * d(log(PEM[ce]) - log(PED[ce])) * (PED[ce]{-1} * ED[ce, s]{-1}/(PE[ce, s]{-1} * E[ce, s]{-1})) if (EM[ce, s] <> 0) * (ED[ce, s] <> 0)
 
 # Notional Demand for domestic Energy c of the sector
 
@@ -137,7 +137,7 @@ d(SUBST_EM_n[ce, s]) = -ES_CIM($s, 20 + $ce) * d(log(PEM[ce]) - log(PED[ce])) * 
 
 d(log(ED[ce, s])) = d(log(E[ce, s] + ADD_IMPORTS * ED[ce,s]/(MATD + ED))) + d(SUBST_ED[ce, s]) if ED[ce, s] <> 0
 
-d(SUBST_ED_n[ce, s]) = -ES_CIM($s, 20 + $ce) * d(log(PED[ce]) - log(PEM[ce])) * (PEM[ce]{-1} * EM[ce, s]{-1} / (PE[ce, s]{-1} * E[ce, s]{-1})) if (EM[ce, s] <> 0) * (ED[ce, s] <> 0)
+d(SUBST_ED_n[ce, s]) = -ES_CIM($s, 19 + $ce) * d(log(PED[ce]) - log(PEM[ce])) * (PEM[ce]{-1} * EM[ce, s]{-1} / (PE[ce, s]{-1} * E[ce, s]{-1})) if (EM[ce, s] <> 0) * (ED[ce, s] <> 0)
 
 E|O|[s] = sum(E|O|[ce, s] on ce)
 E|O| = sum(E|O|[s] on s)
