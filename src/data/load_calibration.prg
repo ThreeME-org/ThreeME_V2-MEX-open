@@ -327,7 +327,7 @@ subroutine load_calibration
   For %hh {%list_household}
      !step_2=0
     For %ce  {%list_com_E}
-      call create_series("EN_HH_"+%ce+"_"+%hh,STEADYSTATE(2,1),ENERGY(26,1+!step_2))
+      call create_series("EN_HH_"+%ce+"_"+%hh,STEADYSTATE(2,1),ENERGY(37,1+!step_2))
 
       !step_2=!step_2+1
      next
@@ -338,7 +338,7 @@ subroutine load_calibration
   !step_1=0
   For %hh {%list_household}
    
-    call create_series("EN_HH_BIOM_"+%hh,STEADYSTATE(2,1),ENERGY(26,4))
+    call create_series("EN_HH_BIOM_"+%hh,STEADYSTATE(2,1),ENERGY(37,4))
     !step_1=!step_1+1
    next
   
