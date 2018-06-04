@@ -1,3 +1,17 @@
+Subroutine standard_outputs(string %grp_name, string %index)
+
+group {%grp_name} 100*(GDP_{%index}/GDP_0-1) 100*(VA_19_{%index}/VA_19_0-1) 100*(CH_{%index}/CH_0-1) 100*(IA_{%index}/IA_0-1) 100*((IA_{%index}-IA_20_{%index})/(IA_0-IA_20_0)-1) 100*(X_{%index}/X_0-1) 100*(M_{%index}/M_0-1) 100*(PCH_{%index}/PCH_0-1) 100*(PY_{%index}/PY_0-1) 100*((W_{%index}/PCH_{%index})/(W_0/PCH_0)-1) 100*((CL_{%index}/PVA_{%index})/(CL_0/PVA_0)-1) L_{%index}-L_0 100*(UNR_TOT_{%index}-UNR_TOT_0) 100*((PX_{%index}*X_{%index}-PM_{%index}*M_{%index})/(PGDP_{%index}*GDP_{%index})-(PX_0*X_0-PM_0*M_0)/(PGDP_0*GDP_0)) 100*(EMS_TOT_{%index}/EMS_TOT_0-1)
+{%grp_name}.sheet(t)
+show {%grp_name}
+
+endsub
+
+
+
+
+
+
+
 subroutine additional_outputs
 
   smpl @all
@@ -8,7 +22,7 @@ subroutine additional_outputs
 
     %tablename = "tab_macro_2"
     freeze(mode = overwrite, {%tablename}) a_{%tablename}
-    'show  {%tablename}
+    show  {%tablename}
 
     shell if not exist output_{%DC} mkdir output_{%DC}  ' Windows create the output folder if it does not exist
     {%tablename}.save(t=txt) output_{%DC}\{%tablename}_{%DS}.xls
@@ -47,116 +61,15 @@ subroutine additional_outputs
     'endif
     'next
 
-  endif
-
-
-  if %save = "yes" and %tabopt = "3MEBLOCK" then
-
-
-    %tablename = "tab_shock"
-    freeze(mode = overwrite, {%tablename}) a_{%tablename}
-    show  {%tablename}
-
-    shell if not exist output_3ME_{%DC}\output_{%DS} mkdir output_3ME_{%DC}\output_{%DS}  ' Windows create the output folder if it does not exist
-    {%tablename}.save(t=txt) output_3ME_{%DC}\output_{%DS}\{%tablename}.xls
-
-    shell if not exist output_graphs mkdir output_graphs  ' Windows create the output folder if it does not exist
-
-    %tablename_2 = "tab_baseline"
-    freeze(mode = overwrite, {%tablename_2}) a_{%tablename_2}
-    show  {%tablename}
-
-    shell if not exist output_3ME_{%DC}\output_{%DS} mkdir output_3ME_{%DC}\output_{%DS}  ' Windows create the output folder if it does not exist
-    {%tablename_2}.save(t=txt) output_3ME_{%DC}\output_{%DS}\{%tablename_2}.xls
-
-    shell if not exist output_graphs mkdir output_graphs  ' Windows create the output folder if it does not exist
-
-    for %format png 'jpg 'bmp gif
-      a_graph_macro_2.setupdate(manual) @all
-      a_graph_macro_2.update
-      a_graph_macro_2.save(t={%format}, d=500)  output_graphs\allsmpl_graph_macro_2_{%DS}_{%DC}
-
-      if {%lastdate}>{%lastdate_graph} then
-        a_graph_macro_2.setupdate(manual) @first {%lastdate_graph}
-        a_graph_macro_2.update
-        a_graph_macro_2.save(t={%format}, d=500)  output_graphs\{%lastdate_graph}_graph_macro_2_{%DS}_{%DC}
-      endif
-    next
-
-    for %format png 'jpg 'bmp gif
-      ' Save graph; t=format; d=nb of dots per inch
-      a_graph_production2.setupdate(manual) @all
-      a_graph_production2.update
-      a_graph_production2.save(t={%format}, d=500)  output_graphs\allsmpl_graph_production2_{%DS}_{%DC}
-
-
-      if {%lastdate}>{%lastdate_graph} then
-
-        a_graph_production2.setupdate(manual) @first {%lastdate_graph}
-        a_graph_production2.update
-        a_graph_production2.save(t={%format}, d=500)  output_graphs\{%lastdate_graph}_graph_production2_{%DS}_{%DC}
-
-        ' Save graph; t=format; d=nb of dots per inch
-      endif
-
-    next
-
-    for %format png 'jpg 'bmp gif
-      ' Save graph; t=format; d=nb of dots per inch
-      a_graph_Employment2.setupdate(manual) @all
-      a_graph_Employment2.update
-      a_graph_Employment2.save(t={%format}, d=500)  output_graphs\allsmpl_graph_Employment2_{%DS}_{%DC}
-
-      if {%lastdate}>{%lastdate_graph} then
-        a_graph_Employment2.setupdate(manual) @first {%lastdate_graph}
-        a_graph_Employment2.update
-        a_graph_Employment2.save(t={%format}, d=500)  output_graphs\{%lastdate_graph}_graph_Employment2_{%DS}_{%DC} ' Save graph; t=format; d=nb of dots per inch
-      endif
-    next
-
-    for %format png 'jpg 'bmp gif
-      ' Save graph; t=format; d=nb of dots per inch
-      a_graph_ProductionPrice2.setupdate(manual) @all
-      a_graph_ProductionPrice2.update
-      a_graph_ProductionPrice2.save(t={%format}, d=500)  output_graphs\allsmpl_graph_ProductionPrice2_{%DS}_{%DC}
-
-      if {%lastdate}>{%lastdate_graph} then
-        a_graph_ProductionPrice2.setupdate(manual) @first {%lastdate_graph}
-        a_graph_ProductionPrice2.update
-        a_graph_ProductionPrice2.save(t={%format}, d=500)  output_graphs\{%lastdate_graph}_graph_ProductionPrice2_{%DS}_{%DC} ' Save graph; t=format; d=nb of dots per inch
-      endif
-    next
-
-  endif
-
-
-endsub
-
-' *******************************************************************************************************************************
-' ***************************************************** create_seriesresults *****************************************
-' *******************************************************************************************************************************
-' Re-creates exogeneous series and creates missing series with "_0" and "_2" for including them in tables
-subroutine create_seriesresults(string %graphopt)
-
-  if %graphopt="3MEBLOCK" then
-
-    for %seriesname Ttco
-      series {%seriesname}_0  =  {%seriesname}
-    next
-
-    for %seriesname Ttco PhiY_22_2201 PhiY_22_2202 PhiY_23_2301 PhiY_23_2302 PhiY_23_2303 _
-      PhiY_23_2304 PhiY_23_2305 PhiY_23_2306 PhiY_23_2307 PhiY_23_2308 _
-      PhiY_24_2401 PhiY_24_2402 PhiY_24_2403 PhiY_24_2404 PhiY_24_2405 PhiY_24_2406
-      series {%seriesname}_2  =  {%seriesname}
-    next
-  endif
+  endif  
 
 endsub
 
 
-' *******************************************************************************************************************************
-' ***************************************************** TABLES  SUBROUTINE MEXIQUE***********************************************
-' *******************************************************************************************************************************
+
+
+' ************************************** TABLES  SUBROUTINE MEXIQUE  *******************************************
+' **************************************************************************************************************
 ' This subroutine makes tables for selected variables 
  subroutine tables(string %tabopt)
  
@@ -269,14 +182,13 @@ endsub
 
 endsub
 
-' *******************************************************************************************************************************
-' ***************************************************** END TABLE  SUBROUTINE ***************************************************
-' *******************************************************************************************************************************
 
-  
-' *******************************************************************************************************************************
-' ***************************************************** GRAPH  SUBROUTINE MEXIQUE ***********************************************
-' *******************************************************************************************************************************
+' ************************************** END TABLE SUBROUTINE  *************************************************
+' **************************************************************************************************************
+
+
+' ************************************** GRAPH  SUBROUTINE MEXIQUE *********************************************
+' **************************************************************************************************************
 ' This subroutine makes graph for selected variables
 subroutine graph(string %graphopt)
 
@@ -305,7 +217,5 @@ subroutine graph(string %graphopt)
 
 endsub
 
-
-' *******************************************************************************************************************************
-' ***************************************************** END GRAPH  SUBROUTINE ***************************************************
-' *******************************************************************************************************************************
+' ***************************************** END GRAPH  SUBROUTINE **********************************************
+' **************************************************************************************************************

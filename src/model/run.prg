@@ -140,6 +140,8 @@ subroutine run(string %data_calibration, string %data_shocks_local)
   ' ***************************************
   ' Call (eventually) here the subroutine you want to use to analyse the results
 
+   Call standard_outputs(%grp, %index)
+
   ' call additional_outputs
   ' call output_template(%scenario_name)
 
@@ -228,10 +230,11 @@ subroutine run_standard(string %scenario_list)
     {%modelname}.scenario(n, a=!scenario_count) %scenario_name
     call standard_shock(%scenario)
     call solvemodel(%solveopt)
-    %grp = "Results" + %scenario
+    %grp = "Results_" + %scenario
 
     !scenario_count = !scenario_count + 1
   next
+
 
 endsub
 
@@ -239,4 +242,4 @@ endsub
 
 ''  call create_seriesresults(%graphopt)
 'call graph(%graphopt)   ' Call GRAPH subroutine
-'' call tables(%tabopt)    ' Call TABLES subroutine
+'call tables(%tabopt)    ' Call TABLES subroutine
