@@ -73,6 +73,8 @@ EN_Gwh_GENER = sum(EN_Gwh_SEC[22, s] on s in 22 23 24 25 26 27 28 29 30 31 32 33
 
 EN_Gwh_CONFIN = sum(EN_Gwh_SEC[22,s] on s in 01 02 03 04 05 06 07 08 10 11 12 13 14 15 16 17 18 19) + EN_Gwh_HH
 
+EN_Gwh_ToT = EN_GWH_SEC + EN_Gwh_HH
+
 # Eletricity prices by sector on pesos cents
 
 P_kwh_AGR = ((sum(E[22,s] on s in 01 02))/EN_Gwh_AGR)*100
