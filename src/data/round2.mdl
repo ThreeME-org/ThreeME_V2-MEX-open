@@ -23,8 +23,15 @@ IS[s] := (@elem(TIS*PRF[s]{-1}, %baseyear) * RF[s]{-1}) * (RF[s]{-1} > 0) + 0.00
 
 NCU[s] := (CU[s]*Y[s] + PIY[s]*IY[s] + PSY[s]*SY[s] + PIS[s]*IS[s]) / Y[s]
 
-(1 + TMD[s]) := @elem(PY_n[s] * Y[s] / (CK[s]*K_n[s] + CL[s]*L_n[s]*PROG_L[s] + PE[s]*E_n[s] + PMAT[s]*MAT_n[s]), %baseyear)
+NCU_n[s] := NCU[s]
+
+CU_n[s] := CU[s]
+
+(1 + TMD[s]) := @elem(PY_n[s] / NCU_n[s], %baseyear)
+
 TMD_n[s] := TMD[s]
+
+(1 + MARKUP[c]) := @elem(PYQ[c] * YQ[c] / (sum(NCU_n[s] * Y[c, s] on s)), %baseyear)
 
 L_S := sum(L_S[s] on s)
 L_SE := sum(L_SE[s] on s)
