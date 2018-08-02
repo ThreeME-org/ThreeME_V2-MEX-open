@@ -59,12 +59,12 @@ subroutine run(string %data_calibration, string %data_shocks_local)
 
 
     ' Put add factors to all equations
-    ' {%modelname}.addassign @all
-    ' ' Set add factor values so that the equation has no residual when evaluated at actuals
-    ' {%modelname}.addinit(v=n) @all
-    ' 'Show all add factors
-    ' group a_addfactors *_a
-    ' show a_addfactors
+    {%modelname}.addassign @all
+    ' Set add factor values so that the equation has no residual when evaluated at actuals
+     {%modelname}.addinit(v=n) @all
+    'Show all add factors
+     group a_addfactors *_a
+     show a_addfactors
 
   else
 
