@@ -284,7 +284,7 @@ subroutine load_calibration
   For %hh {%list_household}
     !step_2=0
     For %ems  {%list_com_E_CO2}
-      call create_series("EMS_HH_"+%ems+"_"+%hh,STEADYSTATE(2,1),EMISSION(26,1+!step_2))
+      call create_series("EMS_HH_"+%ems+"_"+%hh,STEADYSTATE(2,1),EMISSION(37,1+!step_2))
 
       !step_2=!step_2+1
     next
@@ -295,7 +295,7 @@ subroutine load_calibration
   !step_1=0
   For %hh {%list_household}
    
-    call create_series("EMS_HH_BIOM_"+%hh,STEADYSTATE(2,1),EMISSION(26,3))
+    call create_series("EMS_HH_BIOM_"+%hh,STEADYSTATE(2,1),EMISSION(37,3))
     !step_1=!step_1+1
    next
 
