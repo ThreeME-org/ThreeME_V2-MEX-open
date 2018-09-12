@@ -1,7 +1,7 @@
-' ============================================================================ 
+' ============================================================================
 ' This file defines the configuration options
 '
-' ============================================================================ 
+' ============================================================================
 
 ' Set the begining of the sample
 %firstdate = "2011"
@@ -14,7 +14,7 @@
 
 ' Data calibrations to be used in the model run - file names are space-separated and found inside data\calibration
 ' Example: to run the NEW, NR_AS_G and NR_AS_G_WS calibrations, use "NEW NR_AS_G NR_AS_G_WS"
-%calibrations = " MEX" 
+%calibrations = " MEX"
 
 ' Shocks to run, filenames are space-separated and found inside data\shocks
 ' Example: to run the IAPU shock, use "IAPU"
@@ -25,7 +25,7 @@
 %ref = ""
 
 ' Set "yes" for running shock scenario (mitigation scenario)
-%run_shock = "standard" 'standard
+%run_shock = "yes" 'standard
 
 ' List of model blocks to be run
 %list_block = "Other"
@@ -53,4 +53,3 @@
 %close = ""
 ' Set to "yes" to save worfiles
 %savewf = ""
-

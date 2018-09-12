@@ -140,7 +140,7 @@ subroutine run(string %data_calibration, string %data_shocks_local)
   ' ***************************************
   ' Call (eventually) here the subroutine you want to use to analyse the results
 
-   Call standard_outputs(%grp, %index)
+   Call standard_outputs("Main_results", "2")
 
   ' call additional_outputs
   ' call output_template(%scenario_name)
