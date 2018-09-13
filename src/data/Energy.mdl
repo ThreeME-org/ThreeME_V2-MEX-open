@@ -4,6 +4,13 @@ include ..\model\lists
 # equation 9.1: Energy consumption per sector
   EN_SEC[s] := sum(EN_SEC[ce,s] on ce)
 
+  EN_AGR[ce] := sum(EN_SEC[ce, s] on s in 01 02)
+  EN_IND[ce] := sum(EN_SEC[ce, s] on s in 03 04 05 06 07 08 10 11)
+  EN_TRANSP[ce] := sum(EN_SEC[ce, s] on s in 12 13 14 15 16 17) 
+  EN_SER[ce] := sum(EN_SEC[ce, s] on s in 18 19) 
+  EN_TRANSFOR[ce] := sum(EN_SEC[ce, s] on s in 09 20 21)
+  EN_GENER[ce] := sum(EN_SEC[ce, s] on s in 22 23 24 25 26 27 28 29 30 31 32 33)
+
 # equation 9.2:  Energy consumption of all sectors
   EN_SEC := sum(EN_SEC[s] on s)
 
@@ -37,6 +44,9 @@ include ..\model\lists
   EN_HH_TOT := EN_HH + EN_HH_BIOM
   EN_SEC_TOT := EN_SEC + EN_SEC_BIOM
   EN_TOT := EN_SEC + EN_HH + EN_BIOM
+
+  EN_CONFIN[ce] := EN_AGR[ce] + EN_IND[ce] + EN_TRANSP[ce] + EN_SER[ce] + EN_HH[ce]
+  EN_CONFIN_TOT := sum(EN_CONFIN[ce] on ce)
   
 # Electricity consumption bu Gwh
 EN_Gwh_SEC[22, s] := EN_SEC[22, s]*(1/0.0036)
@@ -46,13 +56,13 @@ EN_Gwh_SEC := sum(EN_Gwh_SEC[22, s] on s)
 EN_Gwh_HH := sum(EN_Gwh_HH_22[h] on h)
 
 EN_Gwh_AGR := sum(EN_GWh_SEC[22, s] on s in 01 02)
-EN_Gwh_IND := sum(EN_Gwh_SEC[22, s] on s in 03 04 05 06 07 08 09 10 11)
+EN_Gwh_IND := sum(EN_Gwh_SEC[22, s] on s in 03 04 05 06 07 08 10 11)
 EN_Gwh_TRANSP := sum(EN_Gwh_SEC[22, s] on s in 12 13 14 15 16 17) 
 EN_Gwh_SER := sum(EN_Gwh_SEC[22, s] on s in 18 19) 
-EN_Gwh_ENER := sum(EN_Gwh_SEC[22, s] on s in 20 21)
+EN_Gwh_TRANSFOR := sum(EN_Gwh_SEC[22, s] on s in 09 20 21)
 EN_Gwh_GENER := sum(EN_Gwh_SEC[22, s] on s in 22 23 24 25 26 27 28 29 30 31 32 33)
 
-EN_Gwh_CONFIN := sum(EN_Gwh_SEC[22,s] on s in 01 02 03 04 05 06 07 08 10 11 12 13 14 15 16 17 18 19) + EN_Gwh_HH
+EN_Gwh_CONFIN := EN_Gwh_AGR + EN_Gwh_IND + EN_Gwh_TRANSP + EN_Gwh_SER + EN_Gwh_HH
 
 EN_Gwh_ToT := EN_GWH_SEC + EN_Gwh_HH
 
