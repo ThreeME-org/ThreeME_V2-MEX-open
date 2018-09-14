@@ -1,6 +1,6 @@
 Subroutine standard_outputs(string %grp_name, string %index)
 
-group {%grp_name} 100*(GDP_{%index}/GDP_0-1) 100*(VA_18_{%index}/VA_18_0-1) 100*(CH_{%index}/CH_0-1) 100*(IA_{%index}/IA_0-1) 100*((IA_{%index}-IA_19_{%index})/(IA_0-IA_19_0)-1) 100*(X_{%index}/X_0-1) 100*(M_{%index}/M_0-1) 100*(PCH_{%index}/PCH_0-1) 100*(PY_{%index}/PY_0-1) 100*((W_{%index}/PCH_{%index})/(W_0/PCH_0)-1) 100*((CL_{%index}/PVA_{%index})/(CL_0/PVA_0)-1) L_{%index}-L_0 100*(UNR_TOT_{%index}-UNR_TOT_0) 100*((PX_{%index}*X_{%index}-PM_{%index}*M_{%index})/(PGDP_{%index}*GDP_{%index})-(PX_0*X_0-PM_0*M_0)/(PGDP_0*GDP_0)) 100*(EMS_TOT_{%index}/EMS_TOT_0-1)
+group {%grp_name} 100*(GDP_{%index}/GDP_0-1) 100*(VA_18_{%index}/VA_18_0-1) 100*(CH_{%index}/CH_0-1) 100*(IA_{%index}/IA_0-1) 100*((IA_{%index}-IA_19_{%index})/(IA_0-IA_19_0)-1) 100*(X_{%index}/X_0-1) 100*(M_{%index}/M_0-1) 100*(PCH_{%index}/PCH_0-1) 100*(PY_{%index}/PY_0-1) 100*((W_{%index}/PCH_{%index})/(W_0/PCH_0)-1) 100*((CL_{%index}/PVA_{%index})/(CL_0/PVA_0)-1) L_{%index}-L_0 100*(UNR_TOT_{%index}-UNR_TOT_0) 100*((PX_{%index}*X_{%index}-PM_{%index}*M_{%index})/(PGDP_{%index}*GDP_{%index})-(PX_0*X_0-PM_0*M_0)/(PGDP_0*GDP_0)) 100*(EMS_TOT_{%index}/EMS_TOT_0-1) EN_AGR_20_0  EN_IND_20_0 EN_TRANSP_20_0 EN_SER_20_0 EN_TRANSFOR_20_0 EN_GENER_20_0 EN_AGR_21_0  EN_IND_21_0 EN_TRANSP_21_0 EN_SER_21_0 EN_TRANSFOR_21_0 EN_GENER_21_0 EN_AGR_22_0  EN_IND_22_0 EN_TRANSP_22_0 EN_SER_22_0 EN_TRANSFOR_22_0 EN_GENER_22_0 EN_Gwh_AGR_0  EN_Gwh_IND_0 EN_Gwh_TRANSP_0 EN_Gwh_SER_0 EN_Gwh_TRANSFOR_0 EN_Gwh_GENER_0 EN_AGR_20_2  EN_IND_20_2 EN_TRANSP_20_2 EN_SER_20_2 EN_TRANSFOR_20_2 EN_GENER_20_2 EN_AGR_21_2  EN_IND_21_2 EN_TRANSP_21_2 EN_SER_21_2 EN_TRANSFOR_21_2 EN_GENER_21_2 EN_AGR_22_2  EN_IND_22_2 EN_TRANSP_22_2 EN_SER_22_2 EN_TRANSFOR_22_2 EN_GENER_22_2 EN_Gwh_AGR_2  EN_Gwh_IND_2 EN_Gwh_TRANSP_2 EN_Gwh_SER_2 EN_Gwh_TRANSFOR_2 EN_Gwh_GENER_2 EN_CONFIN_TOT_0 EN_CONFIN_TOT_2 EN_Gwh_CONFIN_0 EN_Gwh_CONFIN_2
 {%grp_name}.sheet(t)
 show {%grp_name}
 
@@ -208,7 +208,7 @@ subroutine graph(string %graphopt)
       'graph a_graph_GDP.line(e) 100*(GDP_2/GDP_0-1) 100*(GD_2/GD_0-1) 100*(CHD_2/CHD_0-1) 100*(CID_2/CID_0-1) 100*(XD_2/XD_0-1) 100*(ID_2/ID_0-1) 100*(M_2/M_0-1)    
       'show a_graph_GDP
       
-      'graph a_graph_PRICE.line(e) 100*(PCH_2/PCH_0-1) 100*((W_2/PCH_2)/(W_0/PCH_0)-1) 100*(W_2/W_0-1)
+      'graph a_graph_PRICE.line(e) 100*(PCH_2/PCH_0-1) 100*((W_2/PCH_2)/(W_0/PCH_0)-1) 100*(W_2/W_2-1)
       'show a_graph_PRICE
       
 
