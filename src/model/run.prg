@@ -101,14 +101,14 @@ subroutine run(string %data_calibration, string %data_shocks_local)
     'track_objectives'
 
     '************************************'
-    'series objectives_gdp = 0
+   '' series objectives_gdp = 0
 
     'objectives_gdp.fill(o=2013) 0.028180,0.028300,0.028390,0.028358,0.028260,0.028234,0.028262,0.028325,0.028407,0.028496,0.028579,0.028647,0.028691,0.028706,0.028685,0.028626,0.028527,0.028388,0.028207,0.027988,0.027732,0.027443,0.027125,0.026784,0.026425,0.026054,0.025678,0.025305,0.024940,0.024592,0.024269,0.023978,0.023727,0.023523,0.023373,0.023284,0.023262,0.023262
 
     'call load_data_shocks(".\..\..\data\shocks\Objectives_gdp.xls")
     'call track_objectives(objectives_gdp, "GDP", "ADD_EXPORTS ADD_EXPG", "0.7 0.3")
     'call load_data_shocks(".\..\..\data\shocks\Target_track.xls")
-    'call solve_for_target("ADD_EXPORTS ADD_EXPG ADD_IMPORTS", "GDP M X", 2008, 2050)
+    'call solve_for_target("ADD_EXPORTS ADD_EXPG ", "GDP X", 2013, 2050)
 
     '================================================================================
   endif
