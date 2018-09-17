@@ -37,7 +37,7 @@
 ' Set frequency ("a" : annual; "q" quarterly)
 %freq = "a"
 ' Set "new" for loading the data and the specification of the model; something else for loading an existing workfile
-%load = "new"
+%load = ""
 ' Set "u0, u1,... " for user options; "d" diagnostic option; something else for default option
 %solveopt = "u0"
 
