@@ -27,6 +27,8 @@ alpha_PROG_E_H[ce, h] := 0
 GR_PROG_E_H[ce, h] := 0
 BetaExp_bis[c, h] :=  BetaExp[c, h]
 
+GR_PROG_E_SEC[ce, s] := 0
+
 BetaExp_bis[h] := sum(BetaExp_bis[c, h] on c)
 
  ADD_EXPORTS := 0

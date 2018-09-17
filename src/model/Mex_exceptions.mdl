@@ -71,3 +71,6 @@ BetaExp_bis[cm, h] = BetaExp[cm, h]*(1 - (sum(BetaExp_bis[ce, h] on ce)))/(sum(B
 
 BetaExp_bis[h] = sum(BetaExp_bis[c, h] on c) 
 
+# equation 2.20
+@over d(log(E[ce, s])) = d(log(E[s])) + d(SUBST_E[ce, s]) - GR_PROG_E_SEC[ce, s] if E[ce, s] <> 0
+
