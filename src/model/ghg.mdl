@@ -6,6 +6,13 @@ include ..\model\lists
 # equation 6.1: CO2 emissions per sector and source
   d(log(EMS_SEC[ce2,s])) = d(log(E[ce2,s]*IC[ce2,s]))   if E[ce2,s] <> 0
 
+  EMS_AGR[ce2] = sum(EMS_SEC[ce2, s] on s in 01 02)
+  EMS_IND[ce2] = sum(EMS_SEC[ce2, s] on s in 03 04 05 06 07 08 10 11)
+  EMS_TRANSP[ce2] = sum(EMS_SEC[ce2, s] on s in 12 13 14 15 16 17) 
+  EMS_SER[ce2] = sum(EMS_SEC[ce2, s] on s in 18 19) 
+  EMS_TRANSFOR[ce2] = sum(EMS_SEC[ce2, s] on s in 09 20 21)
+  EMS_GENER[ce2] = sum(EMS_SEC[ce2, s] on s in 22 23 24 25 26 27 28 29 30 31 32 33)
+
 # equation 6.2: CO2 emissions from biomass per sector 
   d(log(EMS_SEC_BIOM[s])) = d(log(MAT_02[s])) if EMS_SEC_BIOM[s] <> 0
 
@@ -47,3 +54,10 @@ include ..\model\lists
   EMS_SEC_TOT = EMS_SEC + EMS_SEC_BIOM
   EMS_HH_TOT = EMS_HH + EMS_HH_BIOM
   EMS_TOT = EMS_SEC + EMS_HH EMS_BIOM
+
+  EMS_AGR = sum(EMS_AGR[ce2] on ce2)
+  EMS_IND = sum(EMS_IND[ce2] on ce2)
+  EMS_TRANSP = sum(EMS_TRANSP[ce2] on ce2) 
+  EMS_SER = sum(EMS_SER[ce2] on ce2) 
+  EMS_TRANSFOR = sum(EMS_TRANSFOR[ce2] on ce2)
+  EMS_GENER = sum(EMS_GENER[ce2] on ce2)
