@@ -18,7 +18,7 @@
 
 ' Shocks to run, filenames are space-separated and found inside data\shocks
 ' Example: to run the IAPU shock, use "IAPU"
-%shocks = "IAPU"
+%shocks = "CO2_CAP"
 
 ' Set "realist" for simulating a realistic reference scenario; something else for a stationary  reference scenario
 ' in a realist version model run until 2090. Track_objectif find a solution until this date'
@@ -37,7 +37,7 @@
 ' Set frequency ("a" : annual; "q" quarterly)
 %freq = "a"
 ' Set "new" for loading the data and the specification of the model; something else for loading an existing workfile
-%load = ""
+%load = "new"
 ' Set "u0, u1,... " for user options; "d" diagnostic option; something else for default option
 %solveopt = "u0"
 
