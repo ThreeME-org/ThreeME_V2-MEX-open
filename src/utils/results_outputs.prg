@@ -4,11 +4,6 @@ group {%grp_name} 100*(GDP_{%index}/GDP_0-1) 100*(VA_18_{%index}/VA_18_0-1) 100*
 {%grp_name}.sheet(t)
 show {%grp_name}
 
-
-'EMS_SEC_24_0 EMS_SEC_25_0 EMS_SEC_26_0 EMS_SEC_27_0 EMS_SEC_28_0 EMS_SEC_29_0 EMS_SEC_30_0 EMS_SEC_31_0 EMS_SEC_32_0 EMS_SEC_33_0 
-
-
-
 endsub
 
 
