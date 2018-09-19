@@ -8,7 +8,7 @@ R_G := @elem( (DEP_VAL - (PRESOC_VAL + CL_S[sp]*L_S[sp]*PROG_L[sp] + CL_SE[sp]*L
 
 Tvat|O|[c] := if(CH|O|[c] <> 0, VAT|O|_HSH[c] / (CH|O|[c] - VAT|O|_HSH[c]), 0)
 
-eta_k_E[s] := 0.5
+eta_k_E[s] := 0.6
 
 # equations 3.39 & 3.40
 REC_SUBENERD[sube] := 0
