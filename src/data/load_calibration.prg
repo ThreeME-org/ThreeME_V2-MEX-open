@@ -44,7 +44,7 @@ subroutine load_calibration
   matrix(70,5) EMISSION                                 ' Matrix of the emssions of GHG by type of source
   EMISSION.read(D3,s=GHG_Emissions) {%data_calibration}
 
-  matrix(70,5)ENERGY                                 ' Matrix of the emssions of GHG by type of source
+  matrix(70,15)ENERGY                                 ' Matrix of the emssions of GHG by type of source
   ENERGY.read(D3,s=Energy_consumption) {%data_calibration}
 
   matrix(40,10) DEMOGRAPHY                                  ' Matrix of the emssions of GHG by type of source

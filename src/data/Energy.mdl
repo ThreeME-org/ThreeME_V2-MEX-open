@@ -1,6 +1,10 @@
 include ..\model\lists
 
 # ***AGREGATION OF ENERGY CONSUMPTION***
+
+EN_CONFIN[ce,se] := ENERGY($se, 11+$ce) * (1 + STEADYSTATE(2, 1)) ^ (@year - %baseyear)
+
+
 # equation 9.1: Energy consumption per sector
   EN_SEC[s] := sum(EN_SEC[ce,s] on ce)
 
