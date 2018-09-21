@@ -10,7 +10,7 @@ include ..\model\lists
 
 
 # equation 9.1: Energy consumption per sector and source
-  d(log(EN_SEC[ce,s])) = d(log(E[ce,s]))  if E[ce,s] <> 0 
+  d(log(EN_SEC[ce,se])) = d(log(E[ce,se]))  if E[ce,se] <> 0 
 
 # equation 9.2: Energy consumption from BIOM per sector 
   d(log(EN_SEC_BIOM[s])) = d(log(MAT_03[s])) if EN_SEC_BIOM[s] <> 0
@@ -25,23 +25,20 @@ include ..\model\lists
 # ***AGREGATION OF ENERGY CONSUMPTION***
 
 # equation 9.5: Energy consumption per sector
-  EN_SEC[s] = sum(EN_SEC[ce,s] if EN_SEC[ce,s] <> 0 on ce)
+  EN_SEC[se] = sum(EN_SEC[ce,se] if EN_SEC[ce,se] <> 0 on ce)
 
   EN_AGR[ce] = sum(EN_SEC[ce, s] on s in 01 02)
   EN_IND[ce] = sum(EN_SEC[ce, s] on s in 03 04 05 06 07 08 10 11)
   EN_TRANSP[ce] = sum(EN_SEC[ce, s] on s in 12 13 14 15 16 17) 
   EN_SER[ce] = sum(EN_SEC[ce, s] on s in 18 19) 
-  EN_TRANSFOR[ce] = sum(EN_SEC[ce, s] on s in 09 20 21)
   
-
+  
 # equation 9.6: Energy consumption of all sectors
-  EN_SEC = sum(EN_SEC[s] if EN_SEC[s] <> 0 on s)
+  EN_SEC = sum(EN_SEC[se] if EN_SEC[s] <> 0 on s)
 
-# equation 9.7: Energy consumption from Biomass of all sectors   
-  # EN_SEC_BIOM = sum(EN_SEC_BIOM[s] if EN_SEC_BIOM[s] <> 0 on s)  
 
 # equation 9.8: Energy consumption per source
-   EN_SOU[ce] = sum(EN_SEC[ce,s] if EN_SEC[ce,s] <> 0 on s)
+   EN_SOU[ce] = sum(EN_SEC[ce,se] if EN_SEC[ce,s] <> 0 on s)
  
 # equation 9.9: Energy consumption of all sectors
   EN_SOU = sum(En_SOU[ce] if En_SOU[ce] <> 0 on ce)  
@@ -53,14 +50,8 @@ include ..\model\lists
 # equation 9.11: Energy consumption all households
    EN_HH = sum(EN_HH[ce] on ce)
 
-# equation 9.12: Energy consumption from biomass for households
-   EN_HH_BIOM = sum(EN_HH_BIOM[h] on h)
-
 # equation 9.13: Energy consumption from housholds and sector by source
-   EN_HHSEC_SOU[ce] = EN_HH[ce] + EN_SOU[ce] 
-
-# equation 9.14: Energy consumption from biomass
-  EN_BIOM = EN_SEC_BIOM + EN_HH_BIOM  
+   EN_TOT_SOU[ce] = EN_HH[ce] + EN_SOU[ce] 
 
 # equation 9.15: Total energy consumption
  
@@ -70,10 +61,8 @@ include ..\model\lists
   EN_SER = sum(EN_SER[ce] on ce) 
   EN_TRANSFOR = sum(EN_TRANSFOR[ce] on ce)
  
-
   EN_CONFIN[ce] = EN_AGR[ce] + EN_IND[ce] + EN_TRANSP[ce] + EN_SER[ce] + EN_HH[ce]
   EN_CONFIN_TOT = sum(EN_CONFIN[ce] on ce)
-
 
 
 # Electricity consumption by Gwh
@@ -87,7 +76,6 @@ EN_Gwh_AGR = sum(EN_GWh_SEC[22, s] on s in 01 02)
 EN_Gwh_IND = sum(EN_Gwh_SEC[22, s] on s in 03 04 05 06 07 08 10 11)
 EN_Gwh_TRANSP = sum(EN_Gwh_SEC[22, s] on s in 12 13 14 15 16 17) 
 EN_Gwh_SER = sum(EN_Gwh_SEC[22, s] on s in 18 19) 
-EN_Gwh_TRANSFOR = sum(EN_Gwh_SEC[22, s] on s in 09 20 21)
 
 EN_Gwh_CONFIN = EN_Gwh_AGR + EN_Gwh_IND + EN_Gwh_TRANSP + EN_Gwh_SER + EN_Gwh_HH
 
