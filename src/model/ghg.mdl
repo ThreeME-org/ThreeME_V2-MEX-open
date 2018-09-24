@@ -53,8 +53,8 @@ include ..\model\lists
   EMS_HHSEC = sum(EMS_HHSEC_SOU[ce2] on ce2) 
   EMS_SEC_TOT = EMS_SEC + EMS_SEC_BIOM
   EMS_HH_TOT = EMS_HH + EMS_HH_BIOM
-  EMS_TOT = EMS_SEC + EMS_HH EMS_BIOM
-
+  EMS_TOT = EMS_SEC + EMS_HH 
+  
   EMS_AGR = sum(EMS_AGR[ce2] on ce2)
   EMS_IND = sum(EMS_IND[ce2] on ce2)
   EMS_TRANSP = sum(EMS_TRANSP[ce2] on ce2) 
