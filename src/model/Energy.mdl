@@ -10,7 +10,7 @@ include ..\model\lists
 
 
 # equation 9.1: Energy consumption per sector and source
-  d(log(EN_SEC[ce,se])) = d(log(E[ce,se]))  if E[ce,se] <> 0 
+  d(log(EN_SEC[ce,s])) = d(log(E[ce,s]))  if E[ce,s] <> 0 
 
 # equation 9.2: Energy consumption from BIOM per sector 
   d(log(EN_SEC_BIOM[s])) = d(log(MAT_03[s])) if EN_SEC_BIOM[s] <> 0
@@ -25,7 +25,7 @@ include ..\model\lists
 # ***AGREGATION OF ENERGY CONSUMPTION***
 
 # equation 9.5: Energy consumption per sector
-  EN_SEC[se] = sum(EN_SEC[ce,se] if EN_SEC[ce,se] <> 0 on ce)
+  EN_SEC[s] = sum(EN_SEC[ce,s] if EN_SEC[ce,s] <> 0 on ce)
 
   EN_AGR[ce] = sum(EN_SEC[ce, s] on s in 01 02)
   EN_IND[ce] = sum(EN_SEC[ce, s] on s in 03 04 05 06 07 08 10 11)
@@ -34,7 +34,7 @@ include ..\model\lists
   
   
 # equation 9.6: Energy consumption of all sectors
-  EN_SEC = sum(EN_SEC[se] if EN_SEC[s] <> 0 on s)
+  EN_SEC = sum(EN_SEC[s] if EN_SEC[s] <> 0 on s)
 
 
 # equation 9.8: Energy consumption per source
