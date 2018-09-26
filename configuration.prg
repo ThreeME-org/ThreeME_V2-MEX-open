@@ -14,11 +14,11 @@
 
 ' Data calibrations to be used in the model run - file names are space-separated and found inside data\calibration
 ' Example: to run the NEW, NR_AS_G and NR_AS_G_WS calibrations, use "NEW NR_AS_G NR_AS_G_WS"
-%calibrations = " MEX"
+%calibrations = " MEX2"
 
 ' Shocks to run, filenames are space-separated and found inside data\shocks
 ' Example: to run the IAPU shock, use "IAPU"
-%shocks = "CO2_CAP"
+%shocks = "CO2_CAP2"
 
 ' Set "realist" for simulating a realistic reference scenario; something else for a stationary  reference scenario
 ' in a realist version model run until 2090. Track_objectif find a solution until this date'
