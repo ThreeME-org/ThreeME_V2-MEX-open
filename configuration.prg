@@ -22,10 +22,10 @@
 
 ' Set "realist" for simulating a realistic reference scenario; something else for a stationary  reference scenario
 ' in a realist version model run until 2090. Track_objectif find a solution until this date'
-%ref = "realist"
+%ref = ""
 
 ' Set "yes" for running shock scenario (mitigation scenario)
-%run_shock = "yes" 'standard
+%run_shock = "" 'standard
 
 ' List of model blocks to be run
 %list_block = "Other"
