@@ -76,7 +76,7 @@ subroutine run(string %data_calibration, string %data_shocks_local)
   smpl @all
 
   'to run de track that adjust some given exogenous variablesso that a single endogenous variable follows a predefined trajectory'
-  'call init_tracker
+ '' call init_tracker
 
   '************************************************
   '*********** SOLVE SCENARIOS ********************
@@ -101,13 +101,12 @@ subroutine run(string %data_calibration, string %data_shocks_local)
     'track_objectives'
 
     '************************************'
-    'series objectives_gdp = 0
+   'series objectives_gdp = 0
 
-    'objectives_gdp.fill(o=2013) 0.028180,0.028300,0.02839,0.028360665,0.028507949,0.02874887,0.029052453,0.029390382,0.029737002,0.030069315,0.030366984,0.03061233,0.030790333,0.030888634,0.03089753,0.030809981,0.030621604,0.030330675,0.02993813,0.029447563,0.02886523,0.028200043,0.027463575,0.026670058,0.025836382,0.024982097,0.024129413,0.023303199,0.022530982,0.021842948,0.021271945,0.020853476,0.020625708,0.020629463,0.020908224,0.021508133,0.022477992,0.023869261
-
+    'objectives_gdp.fill(o=2013) 0.0291166,0.029353409,0.028881932,0.028512906,0.028233019,0.028029712,0.02789118,0.027806375,0.027765002,0.02775752,0.027775143,0.027809842,0.02785434,0.027902114,0.027947398,0.02798518,0.0280112,0.028021957,0.028014702,0.027987439,0.027938931,0.027868692,0.027776991,0.027664854,0.027534059,0.02738714,0.027227386,0.027058838,0.026886295,0.026715308,0.026552184,0.026403985,0.026278526,0.026184378,0.026130866,0.02612807,0.026186823,0.026318716
 
     'call load_data_shocks(".\..\..\data\shocks\Objectives_gdp.xls")
-    'call track_objectives(objectives_gdp, "GDP", "ADD_EXPORTS ADD_EXPG", "0.7 0.3")
+   'call track_objectives(objectives_gdp, "GDP", "ADD_EXPORTS ADD_EXPG", "0.7 0.3")
     'call load_data_shocks(".\..\..\data\shocks\Target_track.xls")
     'call solve_for_target("ADD_EXPORTS ADD_EXPG ", "GDP X", 2013, 2050)
 
