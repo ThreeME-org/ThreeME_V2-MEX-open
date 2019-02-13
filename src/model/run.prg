@@ -143,7 +143,7 @@ subroutine run(string %data_calibration, string %data_shocks_local)
    Call standard_outputs("Main_results", "2")
 
   ' call additional_outputs
-   call output_template(%scenario_name)
+  '' call output_template(%scenario_name)
 
 
   ' *******************
