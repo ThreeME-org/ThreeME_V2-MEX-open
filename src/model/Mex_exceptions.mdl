@@ -74,3 +74,11 @@ BetaExp_bis[h] = sum(BetaExp_bis[c, h] on c)
 # equation 2.20
 @over d(log(E[ce, s])) = d(log(E[s])) + d(SUBST_E[ce, s]) - GR_PROG_E_SEC[ce, s] if E[ce, s] <> 0
 
+
+# No adjustments for investments in the electricity sector
+#@over IA[s] = (K_n[s] > (1 - Tdec[se]) * K_n[s]{-1}) * (K_n[s] - (1 - Tdec[s]) * K_n[s]{-1}) + _
+#                 (K_n[s] <= (1 - Tdec[s]) * K_n[s]{-1}) * 0.1 where s in 22 23 24 25 26 27 28 29 30 31 32 33
+
+#@over d(log(IA[s])) = 0 * d(log(IA[s]{-1})) + 1 * (d(log(Y_e[s])) + 0.07 * (log(K_n[s]{-1}) - log(K[s]{-1})) + 0 * d(SUBST_K[s])) + IMP_BUD[s] * @elem(GDP, %baseyear) / @elem(IA[s], %baseyear) if K[s] <> 0 where s in 23 25 31
+
+@over d(log(IA[s])) = d(log(K_n[s])) + 0.03 * (log(K_n[s]{-1}) - log(K[s]{-1}))  if K[s] where s in 23 25 31 
