@@ -36,3 +36,5 @@ BetaExp_bis[h] := sum(BetaExp_bis[c, h] on c)
  ADD_IMPORTS := 0
  ADD_PRESOC := 0
  ADD_TRANS_VAL := 0
+
+ TMD_CAL[s]:= TMD[s]
