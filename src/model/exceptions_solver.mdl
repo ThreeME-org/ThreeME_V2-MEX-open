@@ -1,0 +1,4 @@
+GR_PROG_L[s] = GR_PROG_L_exo
+PROG_L = PROG_L{-1} * (1 + GR_PROG_L_exo)
+
+GR_GDP = GDP/GDP{-1}

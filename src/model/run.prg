@@ -41,7 +41,7 @@ subroutine run(string %data_calibration, string %data_shocks_local)
     call export_all_to_csv
 
     ' Create the series using the dependencies (add-ins "series")
-    {%modelname}.series round1 round2 demography government household Mex_exceptions ghg carbon_tax prices energy
+    {%modelname}.series round1 round2 demography government household Mex_exceptions ghg carbon_tax prices energy exceptions_solver_data
 
     if %hybrid_household="yes"  then 'Load if "yes" in the main
       call load_data_hybrid
@@ -51,7 +51,7 @@ subroutine run(string %data_calibration, string %data_shocks_local)
     call export_all_to_csv
 
     ' Load the model specification from the model/ folder
-    {%modelname}.load blocks
+    {%modelname}.load blocks exceptions_solver
     '{%modelname}.load lists Input_Output Producer Consumer government price 'Adjustments demography 'GHG
 
     'save the worfile'
