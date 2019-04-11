@@ -1,4 +1,7 @@
 GR_PROG_L[s] = GR_PROG_L_exo
 PROG_L = PROG_L{-1} * (1 + GR_PROG_L_exo)
 
-GR_GDP = GDP/GDP{-1}
+GR_GDP = GDP/GDP{-1} - 1
+
+@over d(log(X[c])) = d(log(WD[c] + 0.7 * ADD_solver * X[c] / X )) + d(SUBST_X[c]) if X[c] <> 0
+@over d(log(EXPG)) = ADJUST(67,1)*(d(log(EXPG_trend + 0.3 * ADD_solver)) - STEADYSTATE(62,1)*(DP_G_VAL - DP_G_VAL_n)*PGDP{-1}*GDP{-1} / (PG{-1}*EXPG{-1})) + (1-ADJUST(67,1))*d(log(EXPG{-1}))

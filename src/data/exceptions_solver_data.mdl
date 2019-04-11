@@ -1,4 +1,5 @@
 GR_PROG_L_exo := STEADYSTATE(4, 1)
 PROG_L := (1 + STEADYSTATE(4, 1)) ^ (@year - %baseyear)
 
-GR_GDP := GDP/GDP{-1}
+GR_GDP := GDP/GDP{-1} - 1
+ADD_Solver := 0
