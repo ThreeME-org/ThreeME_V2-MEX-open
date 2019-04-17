@@ -63,7 +63,7 @@ REC_SUBENERM = sum(REC_SUBENERM[sube] on sube)
 REC_SUBENER = REC_SUBENERD + REC_SUBENERM
 
 # equation 4.23
-#@over EXP_n[c, h] * PEXP[c, h] = PEXP[c, h] * NEXP[c, h] + BetaExp_bis[c, h] * (DISPINC_VAL[h] * (1 - MPS[h]) - PNEXP[h] * NEXP[h]) if EXP[c, h] <> 0
+@over EXP_n[c, h] * PEXP[c, h] = PEXP[c, h] * NEXP[c, h] + BetaExp_bis[c, h] * (DISPINC_VAL[h] * (1 - MPS[h]) - PNEXP[h] * NEXP[h]) if EXP[c, h] <> 0
 
 d(log(BetaExp_bis[ce, h])) = d(log(BetaExp[ce, h])) - GR_PROG_E_H[ce, h] if BetaExp[ce, h] <> 0
 

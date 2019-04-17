@@ -57,7 +57,7 @@ PROG_L[s] := PROG_L
 GR_PROG_L[s] := STEADYSTATE(4,1)
 CL_SE[s] := W_SE[s] / PROG_L[s]
 
-alpha_PROG_E_PE := 0
+alpha_PROG_E_PE := 0.3
 alpha_PROG_E[s] := 0
 PROG_E[s] := 1
 GR_PROG_E[s] := 0

@@ -5,3 +5,9 @@ GR_GDP = GDP/GDP{-1} - 1
 
 @over d(log(X[c])) = d(log(WD[c] + 0.7 * ADD_solver * X[c] / X )) + d(SUBST_X[c]) if X[c] <> 0
 @over d(log(EXPG)) = ADJUST(67,1)*(d(log(EXPG_trend + 0.3 * ADD_solver)) - STEADYSTATE(62,1)*(DP_G_VAL - DP_G_VAL_n)*PGDP{-1}*GDP{-1} / (PG{-1}*EXPG{-1})) + (1-ADJUST(67,1))*d(log(EXPG{-1}))
+
+GR_PROG_E_SEC[ce, s] = GR_PROG_E_Agr[ce] where s in 01 02
+GR_PROG_E_SEC[ce, s] = GR_PROG_E_Ind[ce] where s in 03 04 05 06 07 08 10 11
+GR_PROG_E_SEC[ce, s] = GR_PROG_E_Transp[ce] where s in 12 13 14 15 16 17
+GR_PROG_E_SEC[ce, s] = GR_PROG_E_Ser[ce] where s in 18 19
+  
