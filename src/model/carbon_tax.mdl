@@ -3,9 +3,11 @@ include ..\model\lists
 
 # ***CARBON TAX***
 
-Ttco = Ttco_base * PCH
+Ttco[ce2] = Ttco_vol[ce2] * PCH
+Ttco_H[ce2] = Ttco_H_vol[ce2] * PCH
+
 # equation 6.17
-TCO_VAL[ce2, s] = Ttco * EMS_SEC[ce2, s] * (1 - EXO[ce2, s])
+TCO_VAL[ce2, s] = Ttco[ce2] * EMS_SEC[ce2, s] * (1 - EXO[ce2, s])
 TCO_VAL_SOU[ce2] = sum(TCO_VAL[ce2, s] on s)
 TCO_VAL_SEC[s] = sum(TCO_VAL[ce2, s] on ce2)
 TCO_VAL_SEC = sum(TCO_VAL_SEC[s] on s)
@@ -17,7 +19,7 @@ TCO_VAL|O|[ce2, s] = TCO_VAL[ce2, s] * E|O|[ce2, s]/E[ce2, s] if E[ce2, s] <> 0
 TCO_VAL|O|_SOU[ce2] =  sum(TCO_VAL|O|[ce2, s] on s)
 
 # equation 6.19
-TCO_VAL_HH[ce2, h] = Ttco * EMS_HH[ce2, h]
+TCO_VAL_HH[ce2, h] = Ttco_H[ce2]* EMS_HH[ce2, h]
 TCO_VAL_HH_SOU[ce2] = sum(TCO_VAL_HH[ce2, h] on h)
 TCO_VAL_HH[h] = sum(TCO_VAL_HH[ce2, h] on ce2)
 TCO_VAL_HH = sum(TCO_VAL_HH[h] on h)
