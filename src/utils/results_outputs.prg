@@ -36,6 +36,10 @@ group Table_2 L_01_0 L_02_0 L_03_0 L_04_0 L_05_0  L_06_0 L_07_0 L_08_0  L_09_0  
 Table_2.sheet(t)
 show Table_2
 
+Group Table_3 EN_AGR_20_2  EN_IND_20_2 EN_TRANSP_20_2 EN_SER_20_2 EN_HH_20_2 EN_AGR_21_2  EN_IND_21_2 EN_TRANSP_21_2 EN_SER_21_2 EN_HH_21_2 EN_AGR_22_2  EN_IND_22_2 EN_TRANSP_22_2 EN_SER_22_2 EN_HH_22_2
+Table_3.sheet(t)
+show Table_3
+
 endsub
 
 

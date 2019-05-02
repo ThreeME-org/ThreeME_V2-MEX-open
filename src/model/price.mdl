@@ -90,7 +90,7 @@ PE|O|[ce] = P|V|S[ce] * (1 + Tvat|O|oth[ce]) / (1 + @elem(Tvat|O|oth[ce], %basey
 # equation 5.26 & 5.27
 PCH|O|[c] = P|V|S[c]*(1 + Tvat|O|[c]) / (1 + @elem(Tvat|O|[c], %baseyear)) if CH|O|[c] <> 0 where c in %list_com \ %list_com_E_CO2, (O, V) in (D M, YQ M)
 
-PCH|O|[ce2] = P|V|S[ce2]*(1 + Tvat|O|[ce2]) / (1 + @elem(Tvat|O|[ce2], %baseyear)) + Ttco[ce2] * EMS_HH[ce2]/EXP[ce2] if CH|O|[ce2] <> 0 where (O, V) in (D M, YQ M)
+PCH|O|[ce2] = P|V|S[ce2]*(1 + Tvat|O|[ce2]) / (1 + @elem(Tvat|O|[ce2], %baseyear)) + Ttco_H[ce2] * EMS_HH[ce2]/EXP[ce2] if CH|O|[ce2] <> 0 where (O, V) in (D M, YQ M)
 
 # equation 5.28 & 5.29
 PG|O|[c] = P|V|S[c]*((1 + Tvat|O|oth[c]) / (1 + @elem(Tvat|O|oth[c], %baseyear))) if G|O|[c] <> 0 where (O, V) in (D M, YQ M)
