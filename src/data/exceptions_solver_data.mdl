@@ -9,3 +9,13 @@ GR_PROG_E_Agr[ce] := 0
 GR_PROG_E_Ind[ce] := 0
 GR_PROG_E_Transp[ce] := 0
 GR_PROG_E_Ser[ce] :=0
+
+alpha_PROG_E_Agr := 0 
+alpha_PROG_E_Ind := 0
+alpha_PROG_E_Transp := 0
+alpha_PROG_E_Ser := 0
+
+PE_signal_Agr := 0
+PE_signal_Ind := 0
+PE_signal_Transp := 0
+PE_signal_Ser := 0

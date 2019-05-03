@@ -10,4 +10,13 @@ GR_PROG_E_SEC[ce, s] = GR_PROG_E_Agr[ce] where s in 01 02
 GR_PROG_E_SEC[ce, s] = GR_PROG_E_Ind[ce] where s in 03 04 05 06 07 08 10 11
 GR_PROG_E_SEC[ce, s] = GR_PROG_E_Transp[ce] where s in 12 13 14 15 16 17
 GR_PROG_E_SEC[ce, s] = GR_PROG_E_Ser[ce] where s in 18 19
-  
+ 
+alpha_PROG_E[s] = alpha_PROG_E_Agr where s in 01 02
+alpha_PROG_E[s] = alpha_PROG_E_Ind where s in 03 04 05 06 07 08 10 11
+alpha_PROG_E[s] = alpha_PROG_E_Transp where s in 12 13 14 15 16 17
+alpha_PROG_E[s] = alpha_PROG_E_Ser where  s in 18 19 
+
+PE_signal[s] = PE_signal_Agr where  s in 01 02
+PE_signal[s] = PE_signal_Ind where s in 03 04 05 06 07 08 10 11
+PE_signal[s] = PE_signal_Transp where s in 12 13 14 15 16 17
+PE_signal[s] = PE_signal_Ser where  s in 18 19 

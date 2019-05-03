@@ -34,24 +34,36 @@ d(SUBST_MAT_n[trsp, s]) = sum( -ES_TRANSP_CI($s, cols_mat(trsp, trsp_oth)) * d(l
                                value(MAT[trsp_oth, s]{-1} / (MAT[s]{-1}) ) if (trsp_oth <> trsp) on trsp_oth in %list_trsp) _
                           if MAT[trsp, s] <> 0
 
-# equation 2.04 &  2.06
+# equation 2.04 &  2.06: Price signal
 
 @over d(SUBST_K_n[s]) = _
-  -ES_KLEM($s, 1) * d(log(CK[s]) - log(CL[s]))   * (L[s]{-1}   * PROG_L[s]{-1} * CL[s]{-1} / (CU[s]{-1} * Y[s]{-1})) _
-  -eta_K_E[s] * d(log(CK[s]) - log(PE[s]))   * (E[s]{-1}   * PE[s]{-1}                 / (CU[s]{-1} * Y[s]{-1})) _
-  -ES_KLEM($s, 3) * d(log(CK[s]) - log(PMAT[s])) * (MAT[s]{-1} * PMAT[s]{-1}               / (CU[s]{-1} * Y[s]{-1})) _
+  -ES_KLEM($s, 1) * d(log(CK[s]) - log(CL[s]))   * (L[s]{-1}   * PROG_L[s]{-1} * CL[s]{-1}                   / (CU[s]{-1} * Y[s]{-1})) _
+  -eta_K_E[s] * d(log(CK[s]) - log((PE[s] + PE_signal[s])))   * (E[s]{-1}   * (PE[s]{-1} + PE_signal[s]{-1}) / (CU[s]{-1} * Y[s]{-1})) _
+  -ES_KLEM($s, 3) * d(log(CK[s]) - log(PMAT[s])) * (MAT[s]{-1} * PMAT[s]{-1}                                 / (CU[s]{-1} * Y[s]{-1})) _
   if K_n[s] <> 0
 
-
 @over d(SUBST_E_n[s]) = _
-  -eta_K_E[s] * d(log(PE[s]) - log(CK[s]))   * (K[s]{-1}   * CK[s]{-1}                 / (CU[s]{-1} * Y[s]{-1})) _
-  -ES_KLEM($s, 4) * d(log(PE[s]) - log(CL[s]))   * (L[s]{-1}   * PROG_L[s]{-1} * CL[s]{-1} / (CU[s]{-1} * Y[s]{-1})) _
-  -ES_KLEM($s, 6) * d(log(PE[s]) - log(PMAT[s])) * (MAT[s]{-1} * PMAT[s]{-1}               / (CU[s]{-1} * Y[s]{-1})) _
+  -eta_K_E[s] * d(log((PE[s] + PE_signal[s])) - log(CK[s]))   * (K[s]{-1}   * CK[s]{-1}                     / (CU[s]{-1} * Y[s]{-1})) _
+  -ES_KLEM($s, 4) * d(log((PE[s] + PE_signal[s])) - log(CL[s]))   * (L[s]{-1}   * PROG_L[s]{-1} * CL[s]{-1} / (CU[s]{-1} * Y[s]{-1})) _
+  -ES_KLEM($s, 6) * d(log((PE[s] + PE_signal[s])) - log(PMAT[s])) * (MAT[s]{-1} * PMAT[s]{-1}               / (CU[s]{-1} * Y[s]{-1})) _
 if E_n[s] <> 0
+
+@over d(SUBST_L_n[s]) = _
+  -ES_KLEM($s, 1) * d(log(CL[s]) - log(CK[s]))   * (K[s]{-1} * CK[s]{-1}                                       / (CU[s]{-1} * Y[s]{-1})) _
+  -ES_KLEM($s, 4) * d(log(CL[s]) - log((PE[s] + PE_signal[s])))   * (E[s]{-1} * (PE[s]{-1} + PE_signal[s]{-1}) / (CU[s]{-1} * Y[s]{-1})) _
+  -ES_KLEM($s, 5) * d(log(CL[s]) - log(PMAT[s])) * (MAT[s]{-1} * PMAT[s]{-1}                                   / (CU[s]{-1} * Y[s]{-1})) _
+  if L_n[s] <> 0
+
+@over d(SUBST_MAT_n[s]) = _
+  -ES_KLEM($s, 3) * d(log(PMAT[s]) - log(CK[s])) * (K[s]{-1} * CK[s]{-1}                                       / (CU[s]{-1} * Y[s]{-1})) _
+  -ES_KLEM($s, 5) * d(log(PMAT[s]) - log(CL[s])) * (L[s]{-1} * PROG_L[s]{-1} * CL[s]{-1}                       / (CU[s]{-1} * Y[s]{-1})) _
+  -ES_KLEM($s, 6) * d(log(PMAT[s]) - log((PE[s] + PE_signal[s]))) * (E[s]{-1} * (PE[s]{-1} + PE_signal[s]{-1}) / (CU[s]{-1} * Y[s]{-1})) _
+if MAT_n[s] <> 0
+
 
 #d(eta_K_E[smt]) = 0.8*1.0*(d(log(PE[smt]) - log(PCH)))*(d(log(PE[smt]) - log(PCH))>0) + (1 - 0.8)*d(eta_K_E[smt]{-1})
 d(eta_K_E[s]) = 0.8*1.5*(d(log(PE[s]) - log(CK[s])))*(d(log(PE[s]) - log(CK[s]))>0) + (1 - 0.8)*d(eta_K_E[s]{-1})
-#d(eta_K_E[s]) = 0.8*0*(d(log(PE[s]) - log(CK[s])))*(d(log(PE[s]) - log(CK[s]))>0) + (1 - 0.8)*d(eta_K_E[s]{-1}) #Pour test de sensibilité
+#d(eta_K_E[s]) = 0.8*0*(d(log(PE[s]) - log(CK[s])))*(d(log(PE[s]) - log(CK[s]))>0) + (1 - 0.8)*d(eta_K_E[s]{-1}) #Pour test de sensibilitÃ©
 
 # equations 3.39 & 3.40
 
@@ -87,3 +99,4 @@ BetaExp_bis[h] = sum(BetaExp_bis[c, h] on c)
 #@over d(log(1+TMD_n[s])) = 0 * ( d(log(Y[s])) - d(log(Y[s]{-1})))  if Y[s] > 0 where s in 22 23 24 26 27 28 29 30 31 32 33
 
 #@over TMD_n_25 = TMD_CAL_25  
+
