@@ -14,7 +14,7 @@
 
 ' Data calibrations to be used in the model run - file names are space-separated and found inside data\calibration
 ' Example: to run the NEW, NR_AS_G and NR_AS_G_WS calibrations, use "NEW NR_AS_G NR_AS_G_WS"
-%calibrations = " MEX_BALMOREL_NEW"
+%calibrations = " MEX_BALMOREL_NEW2"
 
 ' Shocks to run, filenames are space-separated and found inside data\shocks
 ' Example: to run the IAPU shock, use "IAPU"
@@ -37,7 +37,7 @@
 ' Set frequency ("a" : annual; "q" quarterly)
 %freq = "a"
 ' Set "new" for loading the data and the specification of the model; something else for loading an existing workfile
-%load = ""
+%load = "new"
 ' Set "u0, u1,... " for user options; "d" diagnostic option; something else for default option
 %solveopt = "u0"
 
