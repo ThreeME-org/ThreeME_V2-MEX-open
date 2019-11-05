@@ -14,11 +14,17 @@
 
 ' Data calibrations to be used in the model run - file names are space-separated and found inside data\calibration
 ' Example: to run the NEW, NR_AS_G and NR_AS_G_WS calibrations, use "NEW NR_AS_G NR_AS_G_WS"
-%calibrations = " MEX_BALMOREL_NEW3"
+%calibrations = "MEX_BALMOREL_NEW" 'With investment target'
+'"MEX_BALMOREL_NEW" 'With investment target'
+'"MEX_BALMOREL_NEW2" 'Without investment target and with investement deviation target'
 
 ' Shocks to run, filenames are space-separated and found inside data\shocks
 ' Example: to run the IAPU shock, use "IAPU"
-%shocks = "CO2_CAP2"
+%shocks = "CO2_CAP"'With investment traget '
+'"CO2_CAP"'With investment traget '
+'"CO2_CAP2" 'without investment target' 
+'"CO2_CAP3" 'With investment deviation target'
+
 
 ' Set "realist" for simulating a realistic reference scenario; something else for a stationary  reference scenario
 ' in a realist version model run until 2090. Track_objectif find a solution until this date'
