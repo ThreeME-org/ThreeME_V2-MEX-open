@@ -20,8 +20,8 @@
 
 ' Shocks to run, filenames are space-separated and found inside data\shocks
 ' Example: to run the IAPU shock, use "IAPU"
-%shocks = "CO2_CAP"'With investment traget '
-'"CO2_CAP"'With investment traget '
+%shocks = "CO2_CAP"'With investment target '
+'"CO2_CAP"'With investment target '
 '"CO2_CAP2" 'without investment target' 
 '"CO2_CAP3" 'With investment deviation target'
 

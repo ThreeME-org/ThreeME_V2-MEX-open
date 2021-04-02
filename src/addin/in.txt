@@ -1,1 +1,2 @@
 include ..\model\blocks
+include ..\model\exceptions_solver
